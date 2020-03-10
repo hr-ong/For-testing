@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>老故事</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/404.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<img id="bg" src="./img/03_404bg.jpg">
+			<div id="logo">
+				<img src="./img/03_404-logo.png" style="width: 20rem;">
+			</div>
+			<section id="big">404页面未找到
+				<p>很抱歉，页面它在人生的道路上迷路了</p>
+			</section>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			$('#login').on('click', ()=> {
+				window.location.href='login.html';
+			})
+			$('#logon').on('click', ()=> {
+				window.location.href='logon.html';
+			})
+		})
+	</script>
+</html>

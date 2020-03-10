@@ -1,0 +1,108 @@
+#center {
+    margin: 0 auto;
+    /* text-align: center; */
+    height: 100vh;
+    /* overflow: hidden; */
+}
+#head {
+    margin-top: -3.4rem!important;
+    background-color: #fff;
+}
+#hangB {
+    top: 0;
+    background-color: #fff;
+}
+#lists {
+    margin: 6rem 2rem 8rem 2rem;
+}
+.item {
+    display: flex;
+    font-size: 1.8rem;
+    padding: 1.8rem 0;
+    border-bottom: 0.1rem solid #eee;
+}
+.item span {
+    color: #aaa;
+}
+.text {
+    /* 超过三行文本显示... */
+    overflow:hidden; 
+	text-overflow:ellipsis;
+	display:-webkit-box; 
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3;
+}
+.light {
+    color: #aaa;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+}
+#piao {
+    font-size: 1.8rem;
+    padding: 2rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 1.5rem;
+    background-color: rgba(168, 222, 224, 0.8);
+}
+#piaoshu {
+    color: #fff;
+    background-color: #3e4140;
+    font-size: 2rem;
+    padding: 0 1rem;
+}
+/* 弹出的model */
+#submitModel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(9, 9, 9, 0.6);
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.model-content {
+    width: 90%;
+    font-size: 1.6rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 1.5rem;
+    margin: 20rem auto;
+    padding: 2rem 1rem;
+    line-height: 3rem;
+    z-index: 1001;
+}
+.btn {
+    background-color: #3e4140;
+    color: #fff;
+    border-radius: 1.5rem;
+    font-size: 1.8rem;
+    width: 80%;
+    height: 4.75rem;
+    border: 0;
+    margin: 2rem 0;
+}
+/* 时间轴 */
+.time {
+    width: 2rem;
+    margin-right: -1rem;
+    font-size: 1.4rem;
+}
+.zhou {
+    border-left: 0.1rem solid #ccc;
+    padding-left: 4rem;
+    width: 100%;
+}
+.title {
+    margin-bottom: 0.5rem;
+}
+.light {
+    width: 100%;
+    margin-top: 1rem;
+}
+.light img {
+    width: 4rem;
+    margin-left: 4rem;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>绑定手机</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/forgetPassword.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryW.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+		<style>
+			/* 只改变此页，不影响共享css */
+			#head {
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div id="center">
+				<img id="bg" src="./img/29_绑定手机bg.jpg">
+			</div>
+			<form id="iptBox" class="form-horizontal">	
+				<div class="group">
+					<label for="phone">手机号</label>
+					<input type="text" class="ipt" id="phone" autocomplete="on"
+					autofocus="autofocus" placeholder="请输入您的手机号"></input>
+					<button class="btn" id="" onclick="showModel()">发送验证码</button>
+				</div>
+				<div class="group">
+					<label for="yanzheng">验证码</label>
+					<input type="text" class="ipt" id="yanzheng" autocomplete="on"
+					autofocus="autofocus" placeholder="请输入短信验证码"></input>
+				</div>
+				<div class="group">
+					<button class="btn" id="submit">绑定</button>
+				</div>
+			</form>
+			<div id="submitModel" onclick="closeModel()">
+				<div class="model-content">
+					您得票数不够了，请明天再来
+					<button id="close" class="btn" onclick="closeModel()">
+					确定</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+
+		function showModel() {
+			$('#submitModel').show(400);
+		}
+		function closeModel() {
+			$('#submitModel').hide(400);
+		}
+	</script>
+</html>

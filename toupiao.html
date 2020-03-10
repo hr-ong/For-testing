@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>投票</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/toupiao.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<img src="./img/投票.jpg"
+			style="width: 100%;margin-top: 6rem;">
+			<!-- 多选投票 -->
+			<section class="title">投票【与大咖对话】你最关心的话题都在这儿
+				<span>2020年开年的疫情对很多企业的正常经营造成了很大的困扰，对于企业来说，如何有效控制...<a>全文</a></span>
+			</section>
+			<ul class="lists">
+				<li class="item" v-for="item in kinds">
+					<div class="fang-info" @click="dian($event)"></div>
+					<div style="width: 100%;margin-left: 1rem;">
+						<section class="text" style="font-size: 1.2rem;">{{item.info}}</section>
+					</div>
+				</li>
+			</ul>
+			<input class="btn r tou" type="button" value="投票">
+			<!-- 单选投票 -->
+			<section class="title">PK【你的选择】滑动关闭App会影响iPhone电池寿命，你还会滑动关闭吗？
+				<span>在很多人的理解里，随手关闭应用进程对手机速度的提升是有帮助的，但最近外媒的一篇文章表示...<a>全文</a></span>
+			</section>
+			<ul class="lists">
+				<li class="item">
+					<div class="fang-info" @click="dian($event)"></div>
+					<div style="width: 100%;margin-left: 1rem;">
+						<section class="text" style="font-size: 1.2rem;">会</section>
+					</div>
+				</li>
+				<li class="item">
+					<div class="fang-info" @click="dian($event)"></div>
+					<div style="width: 100%;margin-left: 1rem;">
+						<section class="text" style="font-size: 1.2rem;">不会</section>
+					</div>
+				</li>
+			</ul>
+			<input class="btn r tou" type="button" value="投票">
+			<div id="submitModel" onclick="closeModel()">
+				<div class="model-content">
+					您得票数不够了，请明天再来
+					<button id="close" class="btn" onclick="closeModel()">
+					确定</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		const vm = new Vue({
+			// el指定作用域，该代码在app盒子中生效
+			el:'#center',
+			// 变量，假数据
+			data:{
+				kinds:[
+					{
+						'info':'1、在线办公与企业数字化转型，突破口在哪？'
+					},
+					{
+						'info':'2、远程办公会是昙花一现吗？是否值得长期All in？'
+					},
+					{
+						'info':'3、当前企业服务行业有哪些新机遇？如何实现？'
+					},
+					{
+						'info':'4、消费零售的商业模式会有哪些新升级？'
+					},
+					{
+						'info':'5、疫情之下，生鲜电商平台迎爆发，未来还会有哪些新变化？'
+					},
+					{
+						'info':'6、疫情如何影响市场经济？以及对资本投资的对策建议。'
+					},
+					{
+						'info':'7、线上业务如何从获客到留客，并将业务延申至更长期的生活场景？'
+					}
+				]
+			},
+			// 方法
+			methods:{
+				dian:function(event) {
+					// ES6赋值?
+					let {className} = event.currentTarget;
+					// if ($(this).parent().siblings()) {
+
+					// }
+					console.log($(this).siblings());
+					
+					if (className === 'fang-info') {
+						event.currentTarget.className = 'fang-check';
+					} else {
+						event.currentTarget.className = 'fang-info';
+					}
+				}
+			}
+		})
+		function showModel() {
+			$('#submitModel').show(400);
+		}
+		function closeModel() {
+			$('#submitModel').hide(400);
+		}
+	</script>
+</html>

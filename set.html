@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>设置</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/mine.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<ul id="lists">
+				<li class="item" onclick="showModel()">个人信息<span>an</span></li>
+				<li class="item">账户安全<span>an</span></li>
+				<li class="item">消息通知<span>an</span></li>
+				<li class="item">非WiFi环境下手动下载图片
+					<span>
+						<input type="button" id="val" value="0" style="display: none;"/>
+						<div id="fang">
+							<section id="yuan"></section>
+						</div>
+					</span></li>
+				<li class="item">清除缓存<span>8.8M an</span></li>
+				<li class="item">检查更新<span>an</span></li>
+				<li class="item">当前版本<span>V1.1.1 an</span></li>
+				<li class="item">关于我们<span>an</span></li>
+			</ul>
+			<button class="btn" id="exit">退出登录</button>
+			<!-- 个人信息 -->
+			<div class="model" id="personModel">
+				<img id="gerenbg" src="./img/20_个人信息bg.jpg">
+				<div class="model-content" id="geren">
+					<img src="./img/头像/头像_19.png" width="100rem">
+					<span>基本信息</span>
+					<ul>
+						<li>姓名：我在雨中拉肖邦>	
+						</li>
+						<li>生日：
+							<input type="date" name="" id="">
+						</li>
+						<li>住址：深海的大菠萝里</li>
+						<li>电话：123-4567-8901</li>
+						<li>邮箱：
+							<input type="email" name="" id="" list="defaultEmails" placeholder="email@qq.com" maxlength="13">
+							<datalist id="defaultEmails">
+								<option value="email@163.com">
+								<option value="emai@qq.com">
+								<option value="ema@.org">
+								<option value="em@.com">
+								<option value="e@.arg">
+							</datalist>
+						</li>
+					</ul>
+					<span>身份标签</span>
+					<ul>
+						<li>单车旅行家</li>
+						<li>音乐爱好者</li>
+						<li>学生</li>
+					</ul>
+					<input class="btn" id="closegeren" type="submit" onclick="closeModel()" value="确认修改">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$('#exit').on('click', ()=> {
+			window.location.href='login.html';
+		})
+		$('#fang').on('click', ()=> {
+			let val = document.getElementById('val'),
+				fang = document.getElementById('fang');
+			if (val.value === '0') {
+				fang.style.justifyContent = 'flex-end';	
+				fang.style.backgroundColor = '#a8dee0';
+				val.value = '1';
+			} else {
+				fang.style.justifyContent = 'flex-start';
+				fang.style.backgroundColor = '#aaa';
+				val.value = '0';
+			}
+		})
+		function showModel() {
+			$('#personModel').show(400);
+		}
+		function closeModel() {
+			$('#personModel').hide(400);
+		}
+	</script>
+</html>

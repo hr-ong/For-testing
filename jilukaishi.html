@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>心情</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/mine.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div class="text">
+				<p style="font-size: 2rem;"><span id="wenhou">你好</span> 小猪佩奇</p>
+				<p style="font-size: 2rem;">想跟我分享哪天的故事呢？</p>
+			</div>
+			<!--vue作用域，在此div生效-->
+			<div id="center">
+				<div id="logo">
+					<img src="./img/书本.png" style="width: 16rem;float: left;">
+					<p style="font-size: 2rem;margin: 2rem 0;">今天 <a>选择时间</a></p>
+					<p style="font-size: 2rem;">不知道你那里天气如何？</p>
+				</div>
+				<div class="weathers">
+					<!--动态创建此，写v-for-->
+					<section class="" v-for="weather in kinds">
+						<img :src="weather.src" class="weather" @click="say($event)" style="width: 10rem;border-radius: 1.5rem;"/>
+						<p>{{weather.info}}</p>
+					</section>
+				</div>
+				<div id="btnBox">
+					<button class="btn" id="ok">我想写这天的事</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			let nowTime = new Date(),
+			nowHour = nowTime.getHours(),
+			wenhou = '';
+			wenhou = nowHour > 11 ? '下午好' : '上午好';
+			console.log(nowHour);
+			$('#wenhou').text(wenhou);
+			// 天气
+			const vm = new Vue({
+				// el指定作用域，该代码在app盒子中生效
+				el:'#center',
+				// 变量，假数据
+				data:{
+					kinds:[
+				      {"src":"./img/weather/weather1.png","data-name":"0","info":"下雨"},
+				      {"src":"./img/weather/weather2.png","data-name":"1","info":"多云"},
+				      {"src":"./img/weather/weather3.png","data-name":"2","info":"有雪"},
+				      {"src":"./img/weather/weather4.png","data-name":"3","info":"阴"},
+				      {"src":"./img/weather/weather5.png","data-name":"4","info":"晴"},
+				      {"src":"./img/weather/weather6.png","data-name":"5","info":"打雷"}
+				   ]
+				},
+				// 方法
+				methods:{
+					say:function(event) {
+						let el = event.currentTarget;
+						el.style.backgroundColor = el.style.backgroundColor === '' ? '#abdee0' : '';
+						console.log(el.style.backgroundColor);
+					}
+				}
+			})
+			// 按钮点击
+			$('#ok').on('click', ()=> {
+				window.location.href='login.html';
+			})
+			$('#no').on('click', ()=> {
+				window.location.href='logon.html';
+			})
+		})
+	</script>
+</html>

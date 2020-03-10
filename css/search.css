@@ -1,0 +1,48 @@
+#content {
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 7rem;
+    margin: 0 2rem;
+}
+#search {
+    /* margin: 0 2rem; */
+}
+/* 搜索历史 */
+.tap {
+    display: flex;
+    justify-content: space-between;
+}
+.tap span {
+    font-size: 1.4rem;
+    color: #aaa;
+}
+.tap-ci {
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.tap-ci span {
+    margin: 0.2rem;
+    padding: 1rem 2rem;
+    color: #fff;
+    background-color: #3e4140;
+    border-radius: 0.5rem;
+}
+.tap-qianse span{
+    background-color: #a8dee0;
+    color: #000;
+}
+/* 今日热词 */
+#text {
+    position: relative;
+    top: -56rem;
+    font-size: 1.8rem;
+}
+.progress {
+    margin: 0 4rem;
+    position: relative;
+    top: -40rem;
+}
+

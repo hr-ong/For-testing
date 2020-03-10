@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" id="vp" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/header.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<header id="head">
+			<section class="header" id="h-l">返回</section>
+			<section class="header" id="h-r">功能</section>
+			<section class="header" id="h-c"></section>
+		</header>
+	</body>
+	<script>
+		$(()=>{
+			$('#h-c').text(document.title)
+		})
+	</script>
+</html>

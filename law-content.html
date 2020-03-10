@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>常见问题</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/law.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<section id="box">
+				<dl>
+					<dt class="dTitle">著作权？<i class="r">→</i></dt>
+					<dd class="ren">
+						<p class="txt">
+							著作权，也称为版权，分为著作人格权与著作财产权。
+							其中著作人格权的内涵包括了公开发表权、姓名表示
+							权及禁止他人以扭曲、变更方式，利用著作损害著作
+							人名誉的权利。著作财产权是无形的财产权，是基于
+							人类知识所产生的权利，故属知识产权之一，包括重
+							制权、公开口述权、公开播送权、公开上映权、公开
+							演出权、公开传输权、公开展示权、改作权、散布权、
+							出租权等等。
+						</p>
+						<p class="txt">
+							著作权要保障的是思想的表达形式，而不是保护思想
+							本身，因为在保障著作财产权，此类专属私人之财产
+							权利益的同时，尚须兼顾人类文明之累积与知识及信
+							息之传播，从而算法、数学方法、技术或机器的设计，
+							均不属著作权所要保障的对象。
+						</p>
+						<p class="txt">
+							著作权是有期限的权利，在一定期限经过后，著作财
+							产权即归于失效，而属公有领域，任何人皆可自由利
+							用。在著作权的保护期间内，即使未获作者同意，只
+							要符合“合理使用”的规定，亦可利用。凡此规定皆
+							在平衡著作人与社会对作品进一步使用之利益。
+						</p>
+					</dd>
+				</dl>
+				<dl>
+					<dt class="dTitle">版权<i class="r">→</i></dt>
+					<dd class="wen">
+						<p class="txt">
+							版权（copyright）是用来表述创作者因其文学和艺
+							术作品而享有的权利的一个法律用语。
+						</p>
+						<p class="txt">
+							版权是对计算机程序、文学著作、音乐作品、照片、
+							游戏，电影等的复制权利的合法所有权。除非转让给
+							另一方，版权通常被认为是属于作者的。大多数计算
+							机程序不仅受到版权的保护，还受软件许可证的保护。
+							版权只保护思想的表达形式，而不保护思想本身。算
+							法、数学方法、技术或机器的设计均不在版权的保护
+							之列。
+						</p>
+					</dd>
+				</dl>
+			</section>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			// 都隐藏
+			$('#box dd').hide();
+			// 显示第一个的第二级
+			$('.ren').show();
+			$('#box dt').on('click',function() {
+				// 改变本身状态
+				$(this).parent().children('dd').slideToggle();
+				// 除了点击的，其他的二级收起来
+				$(this).parent().siblings().children('dd').slideUp();
+			});
+
+		})
+	</script>
+</html>

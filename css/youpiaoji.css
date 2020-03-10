@@ -1,0 +1,21 @@
+#bg {
+    width: 100%;
+    height: 100vh;
+}
+#center {
+    text-align: center;
+    height: 100vh;
+    /* overflow: hidden; */
+}
+#head {
+    margin-top: -5.4rem!important;
+    background-color: #fff;
+}
+#hangB {
+    top: 0;
+    background-color: #fff;
+}
+#logo {
+    margin-top: 8rem;
+    overflow-y: scroll;
+}

@@ -1,0 +1,27 @@
+-webkit-tap-highlight-color
+        这个属性只用于iOS (iPhone和iPad)。当你点击一个链接或者通过Javascript定义的可点击元素的时候，它就会出现一个半透明的灰色背景。要重设这个表现，你可以设置-webkit-tap-highlight-color为任何颜色。
+想要禁用这个高亮，设置颜色的alpha值为0即可。
+
+CSS提取公共样式
+
+https://www.w3school.com.cn/cssref/pr_animation.asp
+在页面中引入另一个html
+https://www.w3school.com.cn/cssref/pr_transform.asp
+
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+function函数和ES6箭头函数的区别
+https://blog.csdn.net/github_38851471/article/details/79446722
+
+
+点赞点一条影响所有 已解决
+textarea的padding不起作用：决定外面套一个盒子给背景颜色假装外框
+模拟手机键盘弹出输入等
+
+箭头函数中的$(this)不一样
+() => {};
+// 相当于：
+funciotn(){}.bind(this);

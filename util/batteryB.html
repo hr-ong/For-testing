@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" id="vp" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/battery.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	</head>
+	<body onload="showTime()">
+		<div id="hangB">
+			<img class="hang l" src="./img/信号黑.png">
+			<section class="hang" id="time"></section>
+			<img class="hang r" src="./img/电池黑.png">
+		</div>
+	</body>
+	<script>
+		// 如果数字为7，把它变成07
+		function checkTime(i) {
+			if (i < 10) {
+				i = '0' + i;
+			}
+			return i;
+		}
+		function showTime() {
+			let myDate = new Date(),
+			 h = myDate.getHours(),
+			 m = myDate.getMinutes(),
+			 s = myDate.getSeconds(),
+			 ap = '';
+			 h = checkTime(h);
+			 m = checkTime(m);
+			 s = checkTime(s);
+			 ap = h > 11 ? ' PM' : ' AM';
+			 $('#time').text(h + ':' + m + ':' + s + ap);
+			 setTimeout(showTime, 1000);	
+		}
+	</script>
+</html>

@@ -1,0 +1,27 @@
+#head {
+    margin-top: 2.6rem;
+    position: fixed;
+    width: 100%;
+    border-bottom: 0.1rem solid #eee;
+}
+.header {
+    padding: 0 1rem;    
+    height: 4vh;
+    line-height: 4vh;
+    font-size: 1.4rem;
+}
+#h-l {
+    width: 30%;
+    float: left;
+}
+#h-c {
+    width: 30%;
+    margin: 0 auto;
+    text-align: center;
+
+}
+#h-r {
+    width: 30%;
+    float: right;
+    text-align: right;
+}

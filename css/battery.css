@@ -1,0 +1,34 @@
+/* 整个栏 */
+#hang {
+    color: #fff;
+    background-color: #3e4140;
+    position: fixed;
+    width: 100%;
+    height: 2.7rem;
+    z-index: 100;
+}
+#hangB {
+    color: #000;
+    position: fixed;
+    width: 100%;
+    height: 2.7rem;
+    z-index: 100;
+}
+/* 时钟 */
+.hang {
+    height: 1.2rem;
+    display: inline-block;
+    position: fixed;
+}
+#time {
+    left: 45%;
+    top: 0.6rem;
+}
+.l {
+    left: 0.8rem;
+    top: 0.8rem;
+}
+.r {
+    right: 0.8rem;
+    top: 0.8rem;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>登录</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/login.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<div id="center">
+				<img id="bg" src="./img/02_登录bg.jpg">
+				<div id="logo">
+					<img src="./img/故事图标-虚.png" style="width: 20rem;">
+				</div>
+			</div>
+			<form id="iptBox" class="form-horizontal">
+				<div class="group">
+					<label for="phone">图标</label>
+					<input type="text" class="ipt" id="phone" autocomplete="on"
+					autofocus="autofocus" placeholder="请输入手机号"></input>
+				</div>
+				<div class="group">
+					<label for="password">图标</label>
+					<input type="password" class="ipt" id="password"
+					autocomplete="additional-name" placeholder="请输入密码"></input>
+					<a id="show">显示密码</a>
+				</div>
+				<div class="group">
+					<label for="check">
+						<input type="checkbox" id="check"> 记住密码
+					</label>
+					<label for="check">
+						<a id="forget" style="margin-left: 2rem;" href="forgetPassword.html"> 忘记密码</a>
+					</label>
+				</div>
+				<div class="group">
+					<img id="login" src="./img/02_登录icon.png" width="140rem" style="margin-top: 2rem;">
+				</div>
+			</form>
+			<section id="qingxie">
+				<p>其他登录方式</p>
+			</section>
+		</div>
+	</body>
+	<script>
+		$(()=>{
+			let password = document.getElementById('password'),
+				qiehuan = document.getElementById('show')
+			$('#show').on('click', ()=>{
+				if(password.type === 'password') {
+					password.type = 'text';
+					qiehuan.text = '隐藏密码';
+				} else {
+					password.type = 'password';
+					qiehuan.text = '显示密码';
+				}
+			})
+			$('#login').on('click',()=>{
+				window.location.href = 'jindu.html';
+			})
+		})
+	</script>
+</html>

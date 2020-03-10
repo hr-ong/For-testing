@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>心情</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/mine.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<div id="logo">
+				<img src="./img/对话框.png" style="width: 40rem;">
+				<p id="tag">
+					好啦 设置完成<br>
+					现在开始写下第一个<br>
+					属于你的故事吧<br>
+				</p>
+			</div>
+			<div id="btns">
+				<button class="btn" id="ok">没问题这就开始</button>
+				<br>
+				<section class="" id="no" style="font-size: 1.4rem;margin-top: 2rem;">
+					先不忙，我想再看看</section>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			$('#ok').on('click', ()=> {
+				window.location.href='login.html';
+			})
+			$('#no').on('click', ()=> {
+				window.location.href='logon.html';
+			})
+		})
+	</script>
+</html>

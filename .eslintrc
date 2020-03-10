@@ -1,0 +1,921 @@
+{
+  "env": {
+
+    // Node代码
+    // "node": true,
+
+    // 浏览器端代码
+    "browser": true,
+
+    // 支持ES6
+    "es6": true,
+
+    "jquery": true
+  },
+
+  // ESLint推荐的配置，可以通过后续配置修改
+  "extends": "eslint:recommended",
+  
+  "parserOptions": {
+    
+    // 支持ES Modules
+    "sourceType": "module",
+
+    // 支持jsx
+    "ecmaFeatures": {
+      "jsx": true
+    },
+  },
+
+  "plugins": [
+    "eslint-plugin-import"
+  ],
+
+  // 全局变量
+  "globals": {
+    "_": true,
+    "moment": true,
+    "light": true,
+
+    // jest单元测试
+    "it": true,
+    "test": true,
+    "describe": true,
+    "expect": true,
+    "beforeAll": true,
+    "afterAll": true,
+    "beforeEach": true,
+    "afterEach": true,
+
+    "React": true,
+    "ReactDOM": true,
+    "dom": true
+  },
+
+  "rules": {
+
+    /******************************
+     * 1. Types 
+     */
+
+    // 1.1 Primitives: When you access a primitive type you work directly on its value.
+    // 1.2 Complex: When you access a complex type you work on a reference to its value.
+
+
+    /******************************
+     * 2. References
+     */
+
+    // 2.1 Use const for all of your references; avoid using var. eslint: prefer-const, no-const-assign
+    // 使用const, 避免使用var
+    "prefer-const": "error",
+    // 禁止修改const值
+    "no-const-assign": "error",
+
+    // 2.2 If you must reassign references, use let instead of var. eslint: no-var
+    // 使用let而不是var
+    "no-var": "error",
+
+    // 2.3 Note that both let and const are block-scoped.
+
+
+    /******************************
+     * 3. Objects
+     */
+
+    // 3.1 Use the literal syntax for object creation. eslint: no-new-object
+    // 不使用 new Object() 而是直接使用 {}
+    "no-new-object": "error",
+
+    // 3.2 Use computed property names when creating objects with dynamic property names.
+
+    // 3.3 Use object method shorthand. eslint: object-shorthand
+    // 3.4 Use property value shorthand. eslint: object-shorthand
+    // 使用缩略形式的对象方法声明
+    "object-shorthand": "error",
+
+    // 3.5 Group your shorthand properties at the beginning of your object declaration.
+
+    // 3.6 Only quote properties that are invalid identifiers. eslint: quote-props
+    // 禁止对象关键字名称中的引号
+    "quote-props": [
+      "error",
+      "as-needed"
+    ],
+
+
+    /******************************
+     * 4. Arrays
+     */
+
+    // 4.1 Use the literal syntax for array creation. eslint: no-array-constructor
+    // 不使用 new Array() 而是直接使用 []
+    "no-array-constructor": "error",
+
+    // 4.2 Use Array#push instead of direct assignment to add items to an array.
+    // 4.3 Use array spreads ... to copy arrays.
+    // 4.4 To convert an iterable object to an array, use spreads ... instead of Array.from.
+    // 4.5 Use Array.from for converting an array-like object to an array.
+    // 4.6 Use Array.from instead of spread ... for mapping over iterables, 
+    // because it avoids creating an intermediate array.
+
+    // 4.7 Use return statements in array method callbacks. 
+    // It’s ok to omit the return if the function body consists of a single statement returning
+    // an expression without side effects, following 8.2. eslint: array-callback-return
+    // 在数组的回调方法中，强制使用 return 语句
+    "array-callback-return": "error",
+
+    // 4.8 Use line breaks after open and before close array brackets if an array has multiple lines
+
+
+    /******************************
+     * 5. Destructuring
+     */
+    
+    // 5.1 Use object destructuring when accessing and using multiple properties 
+    // of an object. eslint: prefer-destructuring
+    // 5.2 Use array destructuring. eslint: prefer-destructuring
+    //  使用对象解构 const { first, last } = user;
+    "prefer-destructuring": "error",
+
+    // 5.3 Use object destructuring for multiple return values, not array destructuring.
+
+
+    /******************************
+     * 6. Strings
+     */
+
+    // 6.1 Use single quotes '' for strings. eslint: quotes
+    // 限制使用单引号
+    "quotes": [
+      "error",
+      "single"
+    ],
+
+    // 6.2 Strings that cause the line to go over 100 characters should 
+    // not be written across multiple lines using string concatenation.
+
+    // 6.3 When programmatically building up strings, use template strings instead of 
+    // concatenation. eslint: prefer-template template-curly-spacing
+    // 使用模板，不使用字符串拼接
+    "prefer-template": "error",
+    // 模板变量前后，不可以使用空格
+    "template-curly-spacing": [
+      "error",
+      "never"
+    ],
+  
+    // 6.4 Never use eval() on a string, it opens too many vulnerabilities. eslint: no-eval
+    "no-eval": "error",
+
+    // 6.5 Do not unnecessarily escape characters in strings. eslint: no-useless-escape
+    // 不必要的转义
+    "no-useless-escape": "error",
+
+
+    /******************************
+     * 7. Functions
+     */
+
+    // 7.1 Use named function expressions instead of function declarations. eslint: func-style
+    // 【不采用】
+    // "func-style": [
+    // "error",
+    // "declaration",
+    // {"allowArrowFunctions": true}
+    // ],
+    
+    // 7.2 Wrap immediately invoked function expressions in parentheses. eslint: wrap-iife
+    // 调用表达式括号放在最外面
+    "wrap-iife": [
+      "error",
+      "outside"
+    ],
+
+    // 7.3 Never declare a function in a non-function block (if, while, etc). 
+    // Assign the function to a variable instead. Browsers will allow you to do it,
+    // but they all interpret it differently, which is bad news bears. eslint: no-loop-func
+    //  禁止循环中的函数
+    "no-loop-func": "error",
+
+    // 7.4 Note:ECMA-262 defines a block as a list of statements. A function declaration is not a statement.
+    // 7.5 Never name a parameter arguments. This will take precedence over 
+    // the arguments object that is given to every function scope.
+
+    // 7.6 Never use arguments, opt to use rest syntax ... instead. eslint: prefer-rest-params
+    // 不使用arguments关键字，使用function foo(...args)
+    "prefer-rest-params": "error",
+
+    // 7.7 Use default parameter syntax rather than mutating function arguments.
+    // 7.8 Avoid side effects with default parameters.
+    // 7.9 Always put default parameters last.
+
+    // 7.10 Never use the Function constructor to create a new function. eslint: no-new-func
+    // 不使用new Function()
+    "no-new-func": "error",
+
+    // 7.11 Spacing in a function signature. eslint: space-before-function-paren space-before-blocks
+    // 函数声明括号前面的空格
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",  // function () {}
+        "named": "never",      // function foo () {}
+        "asyncArrow": "always"  // async () => {}
+      }
+    ],
+
+    // 7.12 Never mutate parameters. eslint: no-param-reassign
+    // 7.13 Never reassign parameters. eslint: no-param-reassign
+    // 不要重新赋值给参数
+    "no-param-reassign": "error",
+
+    // 7.14 Prefer the use of the spread operator ... to call variadic functions. eslint: prefer-spread
+    // 使用扩展操作符...调用可变参数函数 foo(...args)
+    "prefer-spread": "error",
+
+    // 7.15 Functions with multiline signatures, or invocations, 
+    // should be indented just like every other multiline
+    // list in this guide: with each item on a line by itself, 
+    // with a trailing comma on the last item. eslint: function-paren-newline
+    // 对函数的参数强制实施一致的换行符
+    "function-paren-newline": [
+      "error",
+      "multiline"
+    ],
+  
+
+    /******************************
+     * 8. Arrow Functions
+     */
+
+    // 8.1 When you must use an anonymous function (as when passing an inline callback),
+    // use arrow function notation. eslint: prefer-arrow-callback, arrow-spacing
+    // 使用箭头函数回调
+    "prefer-arrow-callback": "error",
+    
+    // 箭头函数前后的空格
+    "arrow-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    
+    // 8.2 If the function body consists of a single statement returning an 
+    // expression without side effects, omit the braces and use the implicit return. Otherwise,
+    // keep the braces and use a return statement. eslint: arrow-parens, arrow-body-style
+    // 强制省略箭头函数参数括号
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
+    // 强制省略箭头函数大括号
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+
+    // 8.3 In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+    // 8.4 If your function takes a single argument and doesn’t use braces, omit the parentheses. 
+    // Otherwise, always include parentheses around arguments for clarity and consistency. 
+    // Note: it is also acceptable to always use parentheses, in which case use the “always” 
+    // option for eslint. eslint: arrow-parens
+    
+    // 8.5 Avoid confusing arrow function syntax (=>) with comparison operators (<=, >=). 
+    // eslint: no-confusing-arrow
+    // 防止箭头函数与比较操作符混淆
+    "no-confusing-arrow": [
+      "error",
+      { "allowParens": true }
+    ],
+    
+    // 8.6 Enforce the location of arrow function bodies with implicit returns. 
+    // eslint: implicit-arrow-linebreak
+    // 箭头函数体前不允许换行
+    "implicit-arrow-linebreak": [
+      "error",
+      "beside"
+    ],
+
+    
+    /******************************
+     * 9. Classes & Constructors
+     */
+
+    // 9.1 Always use class. Avoid manipulating prototype directly.
+    // 9.2 Use extends for inheritance.
+    // 9.3 Methods can return this to help with method chaining.
+    // 9.4 It’s okay to write a custom toString() method, 
+    // just make sure it works successfully and causes no side effects.
+
+    // 9.5 Classes have a default constructor if one is not specified. An empty constructor function or one
+    // that just delegates to a parent class is unnecessary. eslint: no-useless-constructor
+    // 禁止不必要的构造函数
+    "no-useless-constructor": "error",
+
+    // 9.6 Avoid duplicate class members. eslint: no-dupe-class-members
+    // 禁止类成员名称重复
+    "no-dupe-class-members": "error",
+
+
+    /******************************
+     * 10. Modules
+     */
+
+    // 10.1 Always use modules (import/export) over a non-standard module system. 
+    // You can always transpile to your preferred module system.
+    // 10.2 Do not use wildcard imports.
+    // 10.3 And do not export directly from an import.
+
+    // 10.4 Only import from a path in one place. eslint: no-duplicate-imports
+    // 禁止重复import
+    "no-duplicate-imports": [
+      "error",
+      { "includeExports": true }
+    ],
+    
+    // 10.5 Do not export mutable bindings. eslint: import/no-mutable-exports
+    // 总是export常量
+    "import/no-mutable-exports": "error",
+
+    // 10.6 In modules with a single export, prefer default export over 
+    // named export. eslint: import/prefer-default-export
+    // 使用默认导出
+    "import/prefer-default-export": "error",
+
+    // 10.7 Put all imports above non-import statements. eslint: import/first
+    // import始终放在最开头
+    "import/first": "error",
+
+    // 10.8 Multiline imports should be indented just like multiline array and object literals.
+
+    // 10.9 Disallow Webpack loader syntax in module import statements. eslint: import/no-webpack-loader-syntax
+    // import中禁止webpack语法
+    "import/no-webpack-loader-syntax": "error",
+
+    /******************************
+     * 11. Iterators and Generators
+     */
+
+    // 11.1 Don’t use iterators. Prefer JavaScript’s higher-order functions instead of loops like
+    // for-in or for-of. eslint: no-iterator no-restricted-syntax
+    // 禁止使用iterator，使用Javascript高阶函数
+    "no-iterator": "error",
+
+    // 禁止某些Javascript特性
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']"
+    ],
+    
+    // 11.2 Don’t use generators for now.
+
+    // 11.3 If you must use generators, or if you disregard our advice, make sure
+    // their function signature is spaced properly. eslint: generator-star-spacing
+    // 强制generator符号前后的空格
+    "generator-star-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": false
+      }
+    ],
+    
+
+    /******************************
+     * 12. Properties
+     */
+     
+    // 12.1 Use dot notation when accessing properties. eslint: dot-notation
+    // 强制使用.语法，不使用foo["bar"]
+    "dot-notation": "error",
+
+    // 12.2 Use bracket notation [] when accessing properties with a variable.
+
+    // 12.3 Use exponentiation operator ** when calculating exponentiations. eslint: no-restricted-properties.
+    // 【不采用】
+    // "no-restricted-properties": "error",
+
+
+    /******************************
+     * 13. Variables
+     */
+
+    // 13.1 Always use const or let to declare variables. Not doing so will result in global variables.
+    // We want to avoid polluting the global namespace.
+    // Captain Planet warned us of that. eslint: no-undef prefer-const
+    // 禁止未声明的变量
+    "no-undef": "error",
+
+    // 13.2 Use one const or let declaration per variable. eslint: one-var
+    // 使用一个变量声明
+    "one-var":[
+      "error",
+      "consecutive"
+    ],
+
+    // 13.3 Group all your consts and then group all your lets.
+    // 13.4 Assign variables where you need them, but place them in a reasonable place.
+
+    // 13.5 Don’t chain variable assignments. eslint: no-multi-assign
+    // 禁止链式分配 const a = b = 1
+    "no-multi-assign": "error",
+
+    // 13.6 Avoid using unary increments and decrements (++, --). eslint no-plusplus
+    // 禁止++操作符
+    "no-plusplus": "error",
+
+    // 13.7 Avoid linebreaks before or after = in an assignment.
+    // If your assignment violates max-len, surround the value in parens. eslint operator-linebreak.
+    // 禁止操作符后面的换行
+    "operator-linebreak": [
+      "error",
+      "before"
+    ],
+
+    // 13.8 Disallow unused variables. eslint: no-unused-vars
+    "no-unused-vars": "error",
+
+
+    /******************************
+     * 14. Hoisting
+     */
+
+    // 14.1 var declarations get hoisted to the top of their closest enclosing function scope, 
+    // their assignment does not. const and let declarations are blessed with a new concept 
+    // called Temporal Dead Zones (TDZ). It’s important to know why typeof is no longer safe.
+    // 14.2 Anonymous function expressions hoist their variable name, but not the function assignment.
+    // 14.3 Named function expressions hoist the variable name, not the function name or the function body.
+    // 14.4 Function declarations hoist their name and the function body.
+
+
+    /******************************
+     * 15. Comparison Operators & Equality
+     */
+    
+    // 15.1 Use === and !== over == and !=. eslint: eqeqeq
+    "eqeqeq": "error",
+
+    // 15.2 Conditional statements such as the if statement evaluate their expression 
+    // using coercion with the ToBoolean abstract method and always follow these simple rules
+
+    // 15.3 Use shortcuts for booleans, but explicit comparisons for strings and numbers.
+    // 15.4 For more information see Truth Equality and JavaScript by Angus Croll.
+
+    // 15.5 Use braces to create blocks in case and default clauses that contain 
+    // lexical declarations (e.g. let, const, function, and class). eslint: no-case-declarations
+    // 禁止case块中声明，如果需要需用大括号将case块扩起来
+    "no-case-declarations": "error",
+
+    // 15.6 Ternaries should not be nested and generally be single line expressions. eslint: no-nested-ternary
+    // 三元运算符不可以嵌套
+    "no-nested-ternary": "error",
+
+    // 15.7 Avoid unneeded ternary statements. eslint: no-unneeded-ternary
+    // 避免不必要的三元运算符
+    "no-unneeded-ternary": [
+      "error",
+      { "defaultAssignment": true }
+    ],
+
+    // 15.8 When mixing operators, enclose them in parentheses. The only exception is the standard arithmetic operators (+, -, *, & /)
+    // since their precedence is broadly understood. eslint: no-mixed-operators
+    // 条件中混合有多个运算时，使用括号分隔
+    "no-mixed-operators": [
+      "error",
+      {
+        "groups": [
+          ["+", "-", "*", "/", "%", "**"],
+          ["&", "|", "^", "~", "<<", ">>", ">>>"],
+          ["==", "!=", "===", "!==", ">", ">=", "<", "<="],
+          ["&&", "||"]
+        ],
+        "allowSamePrecedence": true
+      }],
+
+    /******************************
+     * 16. Blocks
+     */
+
+    // 16.1 Use braces with all multi-line blocks. eslint: nonblock-statement-body-position
+    // 单行语句不允许换行，使用大括号的Block不可以在一行
+    "nonblock-statement-body-position": [
+      "error",
+      "beside"
+    ],
+
+    // 16.2 If you're using multi-line blocks with if and else, put else on the
+    // same line as your if block’s closing brace. eslint: brace-style
+    // 将else与if的右大括号放在同一行上
+    "brace-style": [
+      "error",
+      "1tbs"
+    ],
+
+    // 16.3 If an if block always executes a return statement, the subsequent else block is unnecessary.
+    // A return in an else if block following an if block that contains a 
+    // return can be separated into multiple if blocks. eslint: no-else-return
+    // 如果if总是执行return，则不需要后续的else
+    "no-else-return":[
+      "error",
+      { "allowElseIf": true }
+    ],
+
+    /******************************
+     * 17. Control Statements
+     */
+
+    // 17.1 In case your control statement (if, while etc.) gets too long or 
+    // exceeds the maximum line length, each (grouped) condition could be put 
+    // into a new line. The logical operator should begin the line.
+    // 17.2 Don't use selection operators in place of control statements.
+
+    /******************************
+     * 18. Comments
+     */
+
+    // 18.1 Use /** ... */ for multi-line comments.
+    // 18.2 Use // for single line comments. Place single line comments on a 
+    // newline above the subject of the comment. Put an empty line before the 
+    // comment unless it’s on the first line of a block.
+
+    // 18.3 Start all comments with a space to make it easier to read. eslint: spaced-comment
+    // 注释前加空格
+    "spaced-comment": "error",
+
+    // 18.4 Prefixing your comments with FIXME or TODO helps other developers 
+    // quickly understand if you’re pointing out a problem that needs to be revisited, 
+    // or if you’re suggesting a solution to the problem that needs to be implemented. 
+    // These are different than regular comments because they are actionable. 
+    // The actions are FIXME: -- need to figure this out or TODO: -- need to implement.
+
+    // 18.5 Use // FIXME: to annotate problems.
+    // 18.6 Use // TODO: to annotate solutions to problems.
+
+    /******************************
+     * 19. Whitespace
+     */
+
+    // 19.1 Use soft tabs (space character) set to 2 spaces. eslint: indent
+    "indent": [
+      "error",
+      2,
+      { "SwitchCase": 1 } // switch与case语句间使用缩进
+    ],
+
+    // 19.2 Place 1 space before the leading brace. eslint: space-before-blocks
+    // 函数声明括号后面的空格
+    "space-before-blocks": [
+      "error",
+      {
+        "functions": "always",
+        "keywords": "always",
+        "classes": "always"
+      }
+    ],
+
+    // 19.3 Place 1 space before the opening parenthesis in control statements (if, while etc.).
+    // Place no space between the argument list and the function name in function calls and declarations.
+    // eslint: keyword-spacing
+    // 在关键字前后使用一致的空格
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+
+    // 19.4 Set off operators with spaces. eslint: space-infix-ops
+    // 操作符前后加空格
+    "space-infix-ops": "error",
+
+    // 19.5 End files with a single newline character. eslint: eol-last
+    // 文件末尾需要空白的换行
+    "eol-last": "error",
+
+    // 19.6 Use indentation when making long method chains (more than 2 method chains).
+    // Use a leading dot, which emphasizes that the line is a method call, not a new statement.
+    // eslint: newline-per-chained-call no-whitespace-before-property
+    // 链式调用需使用换行
+    "newline-per-chained-call": [
+      "error",
+      { "ignoreChainWithDepth": 2 }
+    ],
+    // 不允许在属性前使用空白
+    "no-whitespace-before-property": "error",
+
+    // 19.7 Leave a blank line after blocks and before the next statement.
+
+    // 19.8 Do not pad your blocks with blank lines. eslint: padded-blocks
+    // 方法里第一行不要添加空行
+    "padded-blocks": [
+      "error",
+      {
+        // "blocks": "always",
+        "classes": "always",
+        "switches": "never"
+      }
+    ],
+    
+    // 19.9 Do not add spaces inside parentheses. eslint: space-in-parens
+    // 禁止括号内空格(a)
+    "space-in-parens": "error",
+
+    // 19.10 Do not add spaces inside brackets. eslint: array-bracket-spacing
+    // '[1, 2]'内两边不要带空格
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+
+    // 19.11 Add spaces inside curly braces. eslint: object-curly-spacing
+    // '{ a: 1, b: 2 }'内两边需要带空格
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+
+    // 19.12 Avoid having lines of code that are longer than 100 characters (including whitespace).
+    // Note: per above, long strings are exempt from this rule, and should not be broken up. eslint: max-len
+    // 单行
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true
+      }
+    ],
+
+    // 19.13 Require consistent spacing inside an open block token and the next token on the same line.
+    // This rule also enforces consistent spacing inside a close block token and previous token on the same line.
+    // eslint: block-spacing
+    // 快开头和结尾需要空白
+    "block-spacing": [
+      "error",
+      "always"
+    ],
+
+    // 19.14 Avoid spaces before commas and require a space after commas. eslint: comma-spacing
+    // 逗号前后跟空格的规则
+    "comma-spacing": [
+      "error",
+      { "before": false, "after": true }
+    ],
+
+    // 19.15 Enforce spacing inside of computed properties. eslint: computed-property-spacing
+    // 属性两边是否带空格,[ a ]和[a],当前选择后者规则
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
+
+    // 19.16 Enforce spacing between functions and their invocations. eslint: func-call-spacing
+    // 调用方法的名字和括号之间不允许有空格，f ()和f()，后者正确
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+
+    // 19.17 Enforce spacing between keys and values in object literal properties. eslint: key-spacing
+    // json数据单行冒号后面带一个空格前面不带空格，多行冒号前后都要有空格并且按value对齐
+    "key-spacing": [
+      "error",
+      {
+        "singleLine": {
+          "beforeColon": false,
+          "afterColon": true
+        },
+        "multiLine": {
+          // "beforeColon": true,
+          "afterColon": true,
+          "align": "colon"
+        }
+      }
+    ],
+
+    // 19.18 Avoid trailing spaces at the end of lines. eslint: no-trailing-spaces
+    // 语句结尾不许有无用的空格
+    "no-trailing-spaces": "error",
+
+    // 19.19 Avoid multiple empty lines and only allow one newline at the end of files. eslint: no-multiple-empty-lines
+    // 语句之间不允许多个空白行
+    "no-multiple-empty-lines": [
+      "error", 
+      { "max": 2 }
+    ],
+
+
+    /******************************
+     * 20. Commas
+     */
+
+    // 20.1 Leading commas: Nope. eslint: comma-style
+    // 声明多行变量逗号都在变量后面
+    "comma-style": [
+      "error",
+      "last",
+      {
+        "exceptions": {
+          "VariableDeclaration": true
+        }
+      }
+    ],
+
+    // 20.2 Additional trailing comma: Yup. eslint: comma-dangle
+    // 禁止最后元素后面的逗号
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+
+
+    /******************************
+     * 21. Semicolons
+     */
+
+    // 21.1 Yup. eslint: semi
+    // 分号结尾
+    "semi": [
+      "error",
+      "always" 
+    ],
+
+
+    /******************************
+     * 22. Type Casting & Coercion
+     */
+
+    // 22.1 Perform type coercion at the beginning of the statement.
+
+    // 22.2 Strings: eslint: no-new-wrappers
+    // 不使用原始的包装器，如 new String()
+    "no-new-wrappers": [
+      "error"
+    ],
+
+    // 22.3 Numbers: Use Number for type casting and parseInt always with a 
+    // radix for parsing strings. eslint: radix no-new-wrappers
+
+    // 22.4 If for whatever reason you are doing something wild and parseInt is 
+    // your bottleneck and need to use Bitshift for performance reasons, 
+    // leave a comment explaining why and what you’re doing.
+    // 22.5 Note: Be careful when using bitshift operations. 
+    // Numbers are represented as 64-bit values, but bitshift operations always 
+    // return a 32-bit integer (source). Bitshift can lead to unexpected behavior 
+    // for integer values larger than 32 bits. Discussion.
+    // 22.6 Booleans: eslint: no-new-wrappers
+
+
+    /******************************
+     * 23. Naming Conventions
+     */
+
+    // 23.1 Avoid single letter names. Be descriptive with your naming. eslint: id-length
+    // 限制变量的最小长度
+    "id-length": [
+      "error",
+      {
+        "min": 2,
+        "properties": "never",
+        "exceptions": [
+          "_"
+        ]
+      }
+    ],
+    
+    // 23.2 Use camelCase when naming objects, functions, and instances. eslint: camelcase
+    // 驼峰命名
+    "camelcase": [
+      "warn",
+      {
+        "properties": "always",
+        "ignoreDestructuring": true
+      }
+    ],
+
+    // 23.3 Use PascalCase only when naming constructors or classes. eslint: new-cap
+    // 要求构造函数大写字母开头
+    "new-cap": "error",
+
+    // 23.4 Do not use trailing or leading underscores. eslint: no-underscore-dangle
+    // 【不采用】因为在MongoDB，使用_id场景非常多
+    // "no-underscore-dangle": [
+    //   "error",
+    //   {
+    //     "allowAfterThis": true,
+    //     "allowAfterSuper": true
+    //   }
+    // ],
+
+    // 23.5 Don’t save references to this. Use arrow functions or Function#bind.
+    // 23.6 A base filename should exactly match the name of its default export.
+    // 23.7 Use camelCase when you export-default a function. 
+    // Your filename should be identical to your function’s name.
+    // 23.8 Use PascalCase when you export a constructor / class / singleton / function library / bare object.
+    // 23.9 Acronyms and initialisms should always be all capitalized, or all lowercased.
+    // 23.10 You may optionally uppercase a constant only if it 
+    // (1) is exported,
+    // (2) is a const (it can not be reassigned), and 
+    // (3) the programmer can trust it (and its nested properties) to never change.
+
+
+    /******************************
+     * 24. Accessors
+     */
+
+    // 24.1 Accessor functions for properties are not required.
+    // 24.2 Do not use JavaScript getters/setters as they cause unexpected 
+    // side effects and are harder to test, maintain, and reason about. Instead, 
+    // if you do make accessor functions, use getVal() and setVal('hello').
+    // 24.3 If the property/method is a boolean, use isVal() or hasVal().
+    // 24.4 It’s okay to create get() and set() functions, but be consistent.
+
+
+    /******************************
+     * 25. Events
+     */
+
+     // 25.1 When attaching data payloads to events 
+     // (whether DOM events or something more proprietary like Backbone events), 
+     // pass an object literal (also known as a "hash") instead of a raw value. 
+     // This allows a subsequent contributor to add more data to the event 
+     // payload without finding and updating every handler for the event.
+
+
+    /******************************
+     * 26. jQuery
+     */
+     
+    // 26.1 Prefix jQuery object variables with a $.
+    // 26.2 Cache jQuery lookups.
+    // 26.3 For DOM queries use Cascading $('.sidebar ul') or parent > child $('.sidebar > ul').
+    // 26.4 Use find with scoped jQuery object queries.
+
+
+    /******************************
+     * 27. ECMAScript 5 Compatibility
+     */
+
+
+    /******************************
+     * 28. ECMAScript 6+ (ES 2015+) Styles
+     */
+     
+    // 28.1 This is a collection of links to the various ES6+ features.
+    // 28.2 Do not use TC39 proposals that have not reached stage 3.
+
+
+    /******************************
+     * 29. Standard Library
+     */
+     
+    // 29.1 Use Number.isNaN instead of global isNaN. eslint: no-restricted-globals
+    // 29.2 Use Number.isFinite instead of global isFinite. eslint: no-restricted-globals
+    // 禁止特定的全局对象
+    "no-restricted-globals": "error",
+
+
+    /******************************
+     * 30. Testing
+     */
+
+    // 30.1 Yup.
+    // 30.2 No, but seriously:
+
+
+    /******************************
+     * 99. 其他自定义规则
+     */
+
+    // 不允许代码中使用 console.log
+    "no-console": [ 
+      "error",
+      {
+        "allow": [
+          "info",
+          "warn",
+          "error"
+        ]
+      }
+    ],
+
+    // 换行风格
+    "linebreak-style": [
+      "error",
+      "windows"
+    ],
+
+    // 没有使用this的成员方法声明为static
+    "class-methods-use-this": "error"
+
+  }
+}

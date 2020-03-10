@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>搜索关键词</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/search.css">
+		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="content">
+			<section id="search">
+				<div class="form-group has-success has-feedback">
+					<label class="control-label sr-only" for="searchBox">Input group with success</label>
+					<div class="input-group">
+						<span class="input-group-addon"
+						style="color: #3c763d;
+						background-color: #fff;
+						border-color: #a8dee0;
+						border-right: 0;">🔍</span>
+						<input type="search" class="form-control" id="searchBox"
+						style="border-left: 0;border-color: #a8dee0;"
+						placeholder="搜索关键词"
+						aria-describedby="searchBoxStatus" value="">
+					</div>
+					<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+					<span id="searchBoxStatus" class="sr-only">(success)</span>
+				</div>
+			</section>
+			<section class="tap">
+				<span>搜索历史</span>
+				<img src="./img/书本.png" alt="清空历史" style="width: 2rem;height: 2rem;">
+			</section>
+			<section class="tap-ci tap-qianse">
+				<span>下雨天</span>
+				<span>面包</span>
+				<span>爸爸</span>
+				<span>夏日沙滩</span>
+			</section>
+			<section class="tap">
+				<span>今日热词</span>
+			</section>
+			<section class="tap-ci">
+				<span>小时候追过的明星</span>
+				<span>我最喜欢的老师的样子</span>
+				<span>武侠</span>
+				<span>西部牛仔</span>
+				<span>老北京</span>
+				<span>土楼</span>
+				<span>真实的秦始皇</span>
+				<span>校园时代</span>
+				<span>希腊神话</span>
+				<span>玩游戏的那些年</span>
+			</section>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			// 点击标签
+			$('.tap-ci span').on('click', (event)=>{
+				let tap = event.currentTarget,
+					search = document.getElementById('searchBox');
+					search.value = tap.textContent;
+			})								
+		})
+	</script>
+</html>

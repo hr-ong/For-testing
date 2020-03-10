@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>意见反馈</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/yijian.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<section class="content">
+				<div style="border-bottom: 0.1rem solid #aaa; padding-bottom: 1rem;">选择反馈类型</div>
+				<div style="margin: 2rem 0;">
+					<ul>
+						<li class="type">
+							<div class="quan-check"></div> 产品建议</li>
+						<li class="type">
+							<div class="quan-info"></div>程序错误</li>
+						<li class="type">
+							<div class="quan-info"></div>在线客服</li>
+					</ul>
+				</div>
+				<div id="textarea">
+					<textarea placeholder="您的反馈将帮助我们更快成长~"></textarea>
+				</div>
+				<button class="btn" id="submit" onclick="showModel()">提交</button>
+				<div id="submitModel" onclick="closeModel()">
+					<div class="model-content">
+						提交成功！<br>
+						感谢您的反馈，我们会及时查看
+						<hr style="margin: 1rem 2rem;">
+						<p id="neirong" class="l" style="margin-left: 1rem;">反馈内容：空</p>
+						<button id="close" class="btn" onclick="closeModel()">
+						确定</button>
+					</div>
+				</div>
+			</section>
+		</div>
+	</body>
+	<script>
+		$('.type div').on('click', (event)=> {
+			// ES6赋值?
+			let {className} = event.currentTarget;
+			if (className === 'quan-info') {
+				// false:删除,true:添加
+				$('.type div').toggleClass('quan-check', false).toggleClass('quan-info', true);
+				event.currentTarget.className = 'quan-check';
+			}
+		});
+		$('#submit').on('click',()=>{
+			let neirong = $('textarea').val();
+			if (neirong !== '')	{
+				$('#neirong').text('反馈内容：' + neirong);
+			}
+		})
+		function showModel() {
+			$('#submitModel').show(400);
+		}
+		function closeModel() {
+			$('#submitModel').hide(400);
+		}
+	</script>
+</html>

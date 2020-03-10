@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>选择信纸</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/xinzhi.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入vue -->
+		<script src="./js/vue.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<div id="logo">
+				<img v-for="logo in kinds" :src="logo.src" alt="" width="100rem">
+			</div>
+			<button class="btn" id="zidingyi">自定义</button>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			$('#zidingyi').on('click', ()=> {
+				window.location.href='login.html';
+			})
+			const vm = new Vue({
+				// el指定作用域，该代码在app盒子中生效
+				el:'#center',
+				// 变量，假数据
+				data:{
+					kinds:[
+				      {"src":"./img/xinzhi/选信纸1.jpg"},
+				      {"src":"./img/xinzhi/选信纸2.jpg"},
+				      {"src":"./img/xinzhi/选信纸3.jpg"},
+				      {"src":"./img/xinzhi/选信纸4.jpg"},
+				      {"src":"./img/xinzhi/选信纸5.jpg"},
+				      {"src":"./img/xinzhi/选信纸6.jpg"},
+				      {"src":"./img/xinzhi/选信纸7.jpg"},
+				      {"src":"./img/xinzhi/选信纸8.jpg"},
+				      {"src":"./img/xinzhi/选信纸9.jpg"}
+				   ]
+				}
+			})
+		})
+	</script>
+</html>

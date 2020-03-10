@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>账户安全</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/mine.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div id="center">
+			<ul id="lists">
+				<li class="item">绑定手机号<span>13349490220 an</span></li>
+				<li class="item">绑定微信号<span>an</span></li>
+				<li class="item">修改账户密码<span>an</span></li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		$(()=> {
+			$('#exit').on('click', ()=> {
+				window.location.href='login.html';
+			})
+			$('#fang').on('click', ()=> {
+				let val = document.getElementById('val'),
+					fang = document.getElementById('fang');
+				if (val.value === '0') {
+					fang.style.justifyContent = 'flex-end';	
+					fang.style.backgroundColor = '#a8dee0';
+					val.value = '1';
+				} else {
+					fang.style.justifyContent = 'flex-start';
+					fang.style.backgroundColor = '#aaa';
+					val.value = '0';
+				}
+			})
+		})
+	</script>
+</html>
