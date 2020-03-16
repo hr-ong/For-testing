@@ -5,7 +5,11 @@
     margin: 0 2rem;
 }
 #search {
-    /* margin: 0 2rem; */
+    border-radius: 1.5rem;
+    border: 0.1rem solid #aaa;
+    padding: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 /* 搜索历史 */
 .tap {
