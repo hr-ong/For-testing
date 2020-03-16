@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" id="vp" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>老故事</title>
+		<link rel="stylesheet" href="./css/mobilebase.css">
+		<link rel="stylesheet" href="./css/index.css">
+		<!-- 引入jquery -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<!-- 引入手机状态栏 -->
+		<script src="./js/batteryB.js"></script>
+		<!-- 引入header -->
+		<script src="./js/header.js"></script>
+	</head>
+	<body>
+		<div style="overflow: hidden;">
+			<ul style="overflow: scroll;padding-bottom: 20rem;">
+				<li class="page" value=1>
+					<div id="naodong">
+						<img src="./img/脑洞之王banner.jpg" style="width: 100%;" onclick="window.location.href">
+					</div>
+					<ul id="sigeanniu">
+						<li class="button">
+							<img src="./img/故事按钮/历史.png" alt="">
+							 <p>古时<br><span>历史上的那些事</span></p>
+						</li>
+						<li class="button">
+							<img src="./img/故事按钮/祠堂.png" alt="">
+							<p>旧时<br><span>我们祖祖辈辈的故事</span></p>
+						</li>
+						<li class="button">
+							<img src="./img/故事按钮/儿童.png" alt="">
+							<p>童时<br><span>我们自己小时候的故事</span></p>
+						</li>
+						<li class="button">
+							<img src="./img/故事按钮/今天icon.png" alt="">
+							<p>今时<br><span>发生在身边的大事小情</span></p>
+						</li>
+					</ul>
+					<input type="search" id="search" placeholder="搜索关键词">
+					<ul id="select">
+						<li>
+							<div class="option">
+								<select name="" id="">
+									<option value="全部">类型</option>
+									<option value="真实">真实</option>
+									<option value="虚拟">虚拟</option>
+								</select>
+								<i class="iconfont icon-toright-copy"></i>
+							</div>
+						</li>
+						<li>
+							<div class="option">
+								<select name="" id="">
+									<option value="全部">地点</option>
+									<option value="北方">北方</option>
+									<option value="南方">南方</option>
+									<option value="东方">东方</option>
+									<option value="西方">西方</option>
+									<option value="国外">国外</option>
+								</select>
+								<i class="iconfont icon-toright-copy"></i>
+							</div>
+						</li>
+						<li>
+							<div class="option">
+								<select name="" id="">
+									<option value="全部">时间</option>
+									<option value="古代">古代</option>
+									<option value="近代">近代</option>
+									<option value="现代">现代</option>
+								</select>
+								<i class="iconfont icon-toright-copy"></i>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<li class="page" value=2>
+					<div id="">
+						<img src="./img/投票.jpg" style="width: 100%;">
+						<p style="font-size: 1.4rem;">从前书信很慢，车马很远，一生只爱一个人。
+						————木心《从前慢》</p>
+						<img src="./img/31_回忆箱.jpg" style="width: 30rem;">
+					</div>
+					<button class="btn" id="logon">投递</button>
+				</li>
+				<li class="page" value=3></li>
+				<li class="page" value=4>
+					<ul id="lists">
+						<li class="item"><div><i class="iconfont icon-aixin"></i>赞和收藏</div><i class="iconfont icon-fanhui2"></i></li>
+						<li class="item"><div><i class="iconfont">@</i>评论和@</div><i class="iconfont icon-fanhui2"></i></li>
+						<li class="item"><div><i class="iconfont icon-yonghu"></i>联系人</div><i class="iconfont icon-fanhui2"></i></li>
+					</ul>
+				</li>
+				<li class="page" value=5></li>
+			</ul>
+		</div>
+		<div class="navBox">
+			<ul class="nav">
+				<li role="presentation" class="select"><a href="#"><i class="iconfont icon-gushi"></i><p>故事</p></a></li>
+				<li role="presentation"><a href="#"><i class="iconfont icon-gushiban"></i><p>回忆</p></a></li>
+				<li role="presentation"><a href="#"><i class="iconfont icon-jia" style="font-size: 4rem;"></i></a></li>
+				<li role="presentation"><a href="#"><i class="iconfont icon-xiaoxi"></i><p>消息</p></a></li>
+				<li role="presentation"><a href="#"><i class="iconfont icon-wode"></i><p>我的</p></a></li>
+			</ul>
+		</div>
+        
+	</body>
+	<script>
+		// 整体
+		$('.page').hide();
+		$('.page').eq(0).show();
+		$('.nav li').click(function(){
+			// 被点击的下标
+			const num = $('.nav li').index(this);
+			// 全部隐藏
+			$('.page').hide();
+			$('.page').eq(num).show();
+			// 被点击的样式改变
+    	$(this).attr('class', 'select');
+			$(this).siblings().attr('class', '');
+			// 标题功能
+			console.log($('.page').eq(num).val());
+			switch($('.page').eq(num).val())
+			{
+				case 1:
+					$('#h-l').text('');
+					$('#h-c').text('故事');
+					$('#h-r').text('吐槽');
+					break;
+				case 2:
+					$('#h-l').text('');
+					$('#h-c').text('回忆');
+					$('#h-r').html('<i class="iconfont icon-gushiban">');
+					break;
+				case 3:
+					$('#h-l').text('');
+					$('#h-c').text('新建');
+					$('#h-r').text('');
+					break;
+				case 4:
+					$('#h-l').text('');
+					$('#h-c').text('消息');
+					$('#h-r').html('<i class="iconfont icon-tucao"><span>吐槽</span>');
+					break;
+				case 5:
+					$('#h-l').html('<i class="iconfont icon-gushifenlei" style="font-size:20px">');
+					$('#h-c').text('我的');
+					$('#h-r').html('<i class="iconfont icon-gushi-fenxiang">');
+					break;
+			}
+		})
+		// 点击事件
+		$('#naodong').on('click', ()=>{
+			window.location.href='naodong.html';
+		})
+		$('#search').on('focus', ()=>{
+			window.location.href='search.html';
+		})
+	</script>
+</html>

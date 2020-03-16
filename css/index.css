@@ -3,9 +3,103 @@
     bottom: 0;
     z-index: 100;
     width: 100%;
+    background-color: #fff;
 }
 .nav {
     display: flex;
     justify-content: space-around;
     text-align: center;
+    border-top: 0.1rem solid #eee;
+    padding: 1rem;
+}
+#head, #hangB {
+    /* margin-top: -3.4rem !important; */
+    background-color: #fff;
+}
+.select a {
+    background-color: #fff;
+    color: #3e4140;
+}
+.page {
+    text-align: center;
+    margin: 6rem 2rem 0 2rem;
+}
+.iconfont span {
+    font-size: 1.4rem;
+}
+/* 1.故事页面 */
+#sigeanniu,#sigeanniu li {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+    /* 换行 */
+    flex-wrap: wrap;
+    justify-content: space-around;   
+}
+#sigeanniu p {
+    width: 10rem;
+}
+.button {
+    padding: 1rem 0;
+    font-size: 1.8rem;
+}
+.button img {
+    margin: 1rem;
+    width: 4rem;
+    height: 4rem;
+}
+.button span {
+    font-size: 1rem;
+    color: #aaa;
+}
+#search {
+    border-radius: 1.5rem;
+    border: 0.1rem solid #aaa;
+    padding: 1rem;
+    width: 100%;
+}
+#select {
+    padding: 1rem 0;
+    border-bottom: 0.1rem solid #eee;
+    display: flex;
+    justify-content: space-around;
+}
+.option {
+    display: flex;
+    justify-content: space-between;
+}
+.option i {
+    /* margin: 100% 0; */
+    font-size: 1.4rem;
+}
+.option select {
+    padding: 0 1rem;
+    /*清除select的边框样式*/
+    border: none;
+    /*清除select聚焦时候的边框颜色*/
+    outline: none;
+    /*将select的宽高等于div的宽高*/
+    width: 100%;
+    /*隐藏select的下拉图标*/
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+/* 2.回忆页面 */
+.btn {
+    background-color: #3e4140;
+    color: #fff;
+    border-radius: 1.5rem;
+    font-size: 1.8rem;
+    width: 80%;
+    height: 4.75rem;
+    border: 0;
+}
+/* 4.消息页面 */
+.item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    padding: 1.8rem 0;
+    border-bottom: 0.1rem solid #eee;
 }
