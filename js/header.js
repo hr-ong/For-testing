@@ -11,8 +11,8 @@ document.writeln("		<script src=\'https://cdn.staticfile.org/jquery/1.10.2/jquer
 document.writeln("	</head>");
 document.writeln("	<body>");
 document.writeln("		<header id=\'head\'>");
-document.writeln("			<section class=\'header\' id=\'h-l\'>返回</section>");
-document.writeln("			<section class=\'header\' id=\'h-r\'>功能</section>");
+document.writeln("			<section class=\'header\' id=\'h-l\'></section>");
+document.writeln("			<section class=\'header\' id=\'h-r\'></section>");
 document.writeln("			<section class=\'header\' id=\'h-c\'></section>");
 document.writeln("		</header>");
 document.writeln("	</body>");
