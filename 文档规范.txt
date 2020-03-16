@@ -8,6 +8,8 @@
     #a8dee0
     浅灰
     #aaa
+    较浅
+    #eee
 3、字体大小
     2rem
     1.8rem
