@@ -15,30 +15,15 @@
 	<body>
 		<div id="center">
 			<ul id="lists">
-				<li class="item">绑定手机号<span>13349490220 an</span></li>
-				<li class="item">绑定微信号<span>an</span></li>
-				<li class="item">修改账户密码<span>an</span></li>
+				<li class="item">绑定手机号<span>13349490220 <i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item">绑定微信号<span><i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item">修改账户密码<span><i class="iconfont icon-fanhui2"></i></span></li>
 			</ul>
 		</div>
 	</body>
 	<script>
-		$(()=> {
-			$('#exit').on('click', ()=> {
-				window.location.href='login.html';
-			})
-			$('#fang').on('click', ()=> {
-				let val = document.getElementById('val'),
-					fang = document.getElementById('fang');
-				if (val.value === '0') {
-					fang.style.justifyContent = 'flex-end';	
-					fang.style.backgroundColor = '#a8dee0';
-					val.value = '1';
-				} else {
-					fang.style.justifyContent = 'flex-start';
-					fang.style.backgroundColor = '#aaa';
-					val.value = '0';
-				}
-			})
+		$('.item').on('click', ()=>{
+			window.location.href = 'bangding.html';
 		})
 	</script>
 </html>

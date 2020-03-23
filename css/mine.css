@@ -47,6 +47,11 @@ body {
     top: -26rem;
 }
 /* 设置页面 */
+#picture {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+}
 #lists {
     margin: 6rem 2rem 0 2rem;
 }

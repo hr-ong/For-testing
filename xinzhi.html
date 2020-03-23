@@ -9,6 +9,9 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<!-- 引入vue -->
 		<script src="./js/vue.js"></script>
+		<!-- 轮播图 -->
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 		<!-- 引入手机状态栏 -->
 		<script src="./js/batteryB.js"></script>
 		<!-- 引入header -->
@@ -16,35 +19,81 @@
 	</head>
 	<body>
 		<div id="center">
-			<div id="logo">
-				<img v-for="logo in kinds" :src="logo.src" alt="" width="100rem">
+			<!-- 轮播图 -->
+			<div id="logo" class="swiper-container">
+				<div class="swiper-wrapper">
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸1.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸2.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸3.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸4.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸5.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸6.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸7.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸8.jpg"/></div>
+						<div class="swiper-slide"><img class="lunbo" src="img/xinzhi/选信纸9.jpg"/></div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+				<!-- 如果需要导航按钮 -->
+				<!-- <div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>	 -->
+				<!-- 如果需要滚动条 -->
+				<!-- <div class="swiper-scrollbar"></div> -->
 			</div>
 			<button class="btn" id="zidingyi">自定义</button>
+			<input type="file" accept="image/*" style="display: none;">
+			<button class="btn" id="next">下一步</button>
 		</div>
 	</body>
 	<script>
-		$(()=> {
-			$('#zidingyi').on('click', ()=> {
-				window.location.href='login.html';
-			})
-			const vm = new Vue({
-				// el指定作用域，该代码在app盒子中生效
-				el:'#center',
-				// 变量，假数据
-				data:{
-					kinds:[
-				      {"src":"./img/xinzhi/选信纸1.jpg"},
-				      {"src":"./img/xinzhi/选信纸2.jpg"},
-				      {"src":"./img/xinzhi/选信纸3.jpg"},
-				      {"src":"./img/xinzhi/选信纸4.jpg"},
-				      {"src":"./img/xinzhi/选信纸5.jpg"},
-				      {"src":"./img/xinzhi/选信纸6.jpg"},
-				      {"src":"./img/xinzhi/选信纸7.jpg"},
-				      {"src":"./img/xinzhi/选信纸8.jpg"},
-				      {"src":"./img/xinzhi/选信纸9.jpg"}
-				   ]
-				}
-			})
+		$('#zidingyi').on('click', ()=> {
+			$(':file').click()
+			.change(function(){
+    		//获取input file的files文件数组;
+    		//获取的是jQuery对象，.get(0)转为原生对象;
+    		//这边默认只能选一个，但是存放形式仍然是数组，所以取第一个元素使用[0];
+      	var file = $(':file').get(0).files[0];
+    		//创建用来读取此文件的对象
+      	var reader = new FileReader();
+    		//使用该对象读取file文件
+      	reader.readAsDataURL(file);
+    		//读取文件成功后执行的方法函数
+      	reader.onload=function(e){
+    			//读取成功后返回的一个参数e，整个的一个进度事件
+      	  console.log(e);
+    			//选择所要显示图片的img，要赋值给img的src就是e中target下result里面
+    			//的base64编码格式的地址
+      	  $('.swiper-slide-active img').get(0).src = e.target.result;
+      	}
+    	})
+		})
+		$('#next').on('click', ()=> {
+			window.location.href = 'youpiaoji.html';
+		})
+		var mySwiper = new Swiper ('.swiper-container', {
+			slidesPerView: 3,
+			spaceBetween: '2%',
+			centeredSlides: true,
+			// direction: 'vertical', // 垂直切换选项
+    	loop: true, // 循环模式选项
+    	// 如果需要分页器
+    	pagination: {
+    	  el: '.swiper-pagination',
+    	},
+    	// 如果需要前进后退按钮
+    	navigation: {
+    	  nextEl: '.swiper-button-next',
+    	  prevEl: '.swiper-button-prev',
+    	},
+    	// 如果需要滚动条
+    	scrollbar: {
+				el: '.swiper-scrollbar',
+    	},
+    	//自动播放
+    	// autoplay: {
+    	// disableOnInteraction: false,
+    	// delay: 3000,
+  		// }
 		})
 	</script>
 </html>

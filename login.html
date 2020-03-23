@@ -20,12 +20,12 @@
 			</div>
 			<form id="iptBox" class="form-horizontal">
 				<div class="group">
-					<label for="phone">图标</label>
+					<label for="phone"><i class="iconfont icon-yonghu"></i></label>
 					<input type="text" class="ipt" id="phone" autocomplete="on"
 					autofocus="autofocus" placeholder="请输入手机号"></input>
 				</div>
 				<div class="group">
-					<label for="password">图标</label>
+					<label for="password"><i class="iconfont icon-mima"></i></label>
 					<input type="password" class="ipt" id="password"
 					autocomplete="additional-name" placeholder="请输入密码"></input>
 					<a id="show">显示密码</a>
@@ -45,24 +45,27 @@
 			<section id="qingxie">
 				<p>其他登录方式</p>
 			</section>
+			<section id="qita">
+				<i class="iconfont icon-qq"></i>
+				<i class="iconfont icon-icon-test"></i>
+				<i class="iconfont icon-icon-test1"></i>
+			</section>
 		</div>
 	</body>
 	<script>
-		$(()=>{
-			let password = document.getElementById('password'),
-				qiehuan = document.getElementById('show')
-			$('#show').on('click', ()=>{
-				if(password.type === 'password') {
-					password.type = 'text';
-					qiehuan.text = '隐藏密码';
-				} else {
-					password.type = 'password';
-					qiehuan.text = '显示密码';
-				}
-			})
-			$('#login').on('click',()=>{
-				window.location.href = 'jindu.html';
-			})
+		let password = document.getElementById('password'),
+			qiehuan = document.getElementById('show');
+		$('#show').on('click', ()=>{
+			if(password.type === 'password') {
+				password.type = 'text';
+				qiehuan.text = '隐藏密码';
+			} else {
+				password.type = 'password';
+				qiehuan.text = '显示密码';
+			}
+		})
+		$('#login').on('click',()=>{
+			window.location.href = 'jindu.html';
 		})
 	</script>
 </html>

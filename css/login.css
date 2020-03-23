@@ -53,6 +53,14 @@
     margin: 1rem 0;
     border-bottom: black 0.1rem solid;
 }
+#qita {
+    position: fixed;
+    bottom: 3rem;
+    right: 0rem;
+}
+#qita i {
+    font-size: 4rem !important;
+}
 /* 选中前样式 */
 input[type=checkbox] + label::before {
     width: 2rem;

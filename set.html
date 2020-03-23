@@ -15,9 +15,9 @@
 	<body>
 		<div id="center">
 			<ul id="lists">
-				<li class="item" onclick="showModel()">个人信息<span>an</span></li>
-				<li class="item">账户安全<span>an</span></li>
-				<li class="item">消息通知<span>an</span></li>
+				<li class="item" onclick="showModel()">个人信息<span><i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item" id="safe">账户安全<span><i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item">消息通知<span><i class="iconfont icon-fanhui2"></i></span></li>
 				<li class="item">非WiFi环境下手动下载图片
 					<span>
 						<input type="button" id="val" value="0" style="display: none;"/>
@@ -25,21 +25,21 @@
 							<section id="yuan"></section>
 						</div>
 					</span></li>
-				<li class="item">清除缓存<span>8.8M an</span></li>
-				<li class="item">检查更新<span>an</span></li>
-				<li class="item">当前版本<span>V1.1.1 an</span></li>
-				<li class="item">关于我们<span>an</span></li>
+				<li class="item">清除缓存<span>8.8M <i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item" onclick="show()">检查更新<span><i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item">当前版本<span>V1.1.1 <i class="iconfont icon-fanhui2"></i></span></li>
+				<li class="item">关于我们<span><i class="iconfont icon-fanhui2"></i></span></li>
 			</ul>
 			<button class="btn" id="exit">退出登录</button>
 			<!-- 个人信息 -->
 			<div class="model" id="personModel">
-				<img id="gerenbg" src="./img/20_个人信息bg.jpg">
+				<img id="gerenbg" src="./img/20_个人信息bg.jpg">	
 				<div class="model-content" id="geren">
-					<img src="./img/头像/头像_19.png" width="100rem">
+					<img id="picture" src="./img/头像/头像_19.png">
+					<input type="file" accept="image/*" style="display: none;">
 					<span>基本信息</span>
 					<ul>
-						<li>姓名：我在雨中拉肖邦>	
-						</li>
+						<li>姓名：我在雨中拉肖邦</li>
 						<li>生日：
 							<input type="date" name="" id="">
 						</li>
@@ -65,9 +65,42 @@
 					<input class="btn" id="closegeren" type="submit" onclick="closeModel()" value="确认修改">
 				</div>
 			</div>
+			<!-- 检查更新 -->
+			<div class="model" id="banbenModel" onclick="closeM()">
+				<div class="model-content">
+					<p>
+						您当前是已是最新版本！
+					</p>
+					<button class="btn" onclick="closeM()">好的</button>
+				</div>
+			</div>
 		</div>
 	</body>
 	<script>
+		$('#picture').on('click', ()=> {
+			$(':file').click()
+			.change(function(){
+    		//获取input file的files文件数组;
+    		//获取的是jQuery对象，.get(0)转为原生对象;
+    		//这边默认只能选一个，但是存放形式仍然是数组，所以取第一个元素使用[0];
+      	var file = $(':file').get(0).files[0];
+    		//创建用来读取此文件的对象
+      	var reader = new FileReader();
+    		//使用该对象读取file文件
+      	reader.readAsDataURL(file);
+    		//读取文件成功后执行的方法函数
+      	reader.onload=function(e){
+    			//读取成功后返回的一个参数e，整个的一个进度事件
+      	  console.log(e);
+    			//选择所要显示图片的img，要赋值给img的src就是e中target下result里面
+    			//的base64编码格式的地址
+      	  $('#picture').get(0).src = e.target.result;
+      	}
+    	})
+		})
+		$('#safe').on('click', ()=> {
+			window.location.href='safe.html';
+		})
 		$('#exit').on('click', ()=> {
 			window.location.href='login.html';
 		})
@@ -84,6 +117,12 @@
 				val.value = '0';
 			}
 		})
+		function show() {
+			$('#banbenModel').show();
+		}
+		function closeM() {
+			$('#banbenModel').hide();
+		}
 		function showModel() {
 			$('#personModel').show(400);
 		}

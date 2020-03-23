@@ -15,12 +15,10 @@
     background-color: #fff;
 }
 #logo {
+    width: 100%;
     display: inline-block;
     justify-content: flex-start;
-    margin-top: 8rem;
-}
-#logo img {
-    margin: 1rem;
+    margin-top: 20rem;
 }
 .btn {
     background-color: #3e4140;
@@ -30,7 +28,30 @@
     width: 80%;
     height: 4.75rem;
     border: 0;
-    margin: 2rem 0;
+    margin: 1rem 0;
     position: relative;
-    top: 6rem;
+    top: 8rem;
+    z-index: 1;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+    width: 0.4rem;
+    height: 0.3rem;
+    border-radius: 50%;
+}
+.swiper-pagination-bullet-active {
+    background-color: #3e4140 !important;
+    width: .8rem !important;
+}
+#center .swiper-container {
+    overflow: unset;
+}
+.swiper-slide img {
+    width: 100%;
+}
+.swiper-slide-active {
+    transform: scale(2);
+}
+.swiper-slide-active img {
+    /* transform: scale(3); */
+    /* width: 20rem; */
 }

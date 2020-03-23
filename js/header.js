@@ -11,7 +11,7 @@ document.writeln("		<script src=\'https://cdn.staticfile.org/jquery/1.10.2/jquer
 document.writeln("	</head>");
 document.writeln("	<body>");
 document.writeln("		<header id=\'head\'>");
-document.writeln("			<section class=\'header\' id=\'h-l\'></section>");
+document.writeln("			<section class=\'header\' id=\'h-l\'><i class=\'iconfont icon-back\'></i></section>");
 document.writeln("			<section class=\'header\' id=\'h-r\'></section>");
 document.writeln("			<section class=\'header\' id=\'h-c\'></section>");
 document.writeln("		</header>");
@@ -19,6 +19,9 @@ document.writeln("	</body>");
 document.writeln("	<script>");
 document.writeln("		$(()=>{");
 document.writeln("			$(\'#h-c\').text(document.title)");
+document.writeln("			$(\'.icon-back\').on(\'click\',()=>{");
+document.writeln("		    window.history.back();");
+document.writeln("		  })");
 document.writeln("		})");
 document.writeln("	</script>");
 document.writeln("</html>");

@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<header id="head">
-			<section class="header" id="h-l"></section>
+			<section class="header" id="h-l"><i class="iconfont icon-back"></i></section>
 			<section class="header" id="h-r"></section>
 			<section class="header" id="h-c"></section>
 		</header>
@@ -19,6 +19,9 @@
 	<script>
 		$(()=>{
 			$('#h-c').text(document.title)
+			$('.icon-back').on('click',()=>{
+  			window.history.back();
+			})
 		})
 	</script>
 </html>

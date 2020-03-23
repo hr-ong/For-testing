@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>法律版面</title>
+		<title>联系人</title>
 		<link rel="stylesheet" href="./css/mobilebase.css">
 		<link rel="stylesheet" href="./css/law.css">
 		<!-- 引入jquery -->
@@ -16,7 +16,7 @@
 		<div id="center">
 			<section id="box">
 				<dl>
-					<dt class="dTitle">法律顾问<i class="r iconfont icon-toright-copy"></i></dt>
+					<dd class="zimuList">B</dd>
 					<dd class="ren">
 						<ul>
 							<li class="tou"><img src="./img/头像/头像_03.png"/></li>
@@ -26,6 +26,7 @@
 							</li>
 						</ul>
 					</dd>
+					<dd class="zimuList">X</dd>
 					<dd class="ren">
 						<ul>
 							<li class="tou"><img src="./img/头像/头像_20.png"/></li>
@@ -36,38 +37,15 @@
 						</ul>
 					</dd>
 				</dl>
-				<dl>
-					<dt class="dTitle">常见问题<i class="r iconfont icon-toright-copy"></i></dt>
-					<dd class="wen">著作权？</dd>
-					<dd class="wen">版权</dd>
-				</dl>
-				<dl>
-					<dt class="dTitle">我的问题<i class="r iconfont icon-toright-copy"></i></dt>
-					<dd class="wen">我的著作权？</dd>
-					<dd class="wen">版权问题怎么算</dd>
-					<dd class="wen">为什么会有我的问题这一项？</dd>
-				</dl>
+			</section>
+			<section id="list">
+				ABCDEFGHIJKLMNOPQRSTUVWXYZ
 			</section>
 		</div>
 	</body>
 	<script>
-		$(()=> {
-			// 都隐藏
-			$('#box dd').hide();
-			// 显示第一个的第二级
-			$('.ren').show();
-			$('#box dt').on('click',function() {
-				// 改变本身状态
-				$(this).parent().children('dd').slideToggle();
-				// 除了点击的，其他的二级收起来
-				$(this).parent().siblings().children('dd').slideUp();
-			});
-			$('.ren').on('click',()=>{
+		$('.ren').on('click',()=>{
 				window.location.href='liaotian.html';
 			})
-			$('.wen').on('click',()=>{
-				window.location.href='law-content.html';
-			})
-		})
 	</script>
 </html>

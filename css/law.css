@@ -28,7 +28,7 @@ ul li {
     width: 20%;
 }
 .tou img {
-    width: 100%;
+    width: 6rem;
     margin-top: -3rem;
     display: inline-block;
 }
@@ -50,4 +50,24 @@ li p {
     /* 空两格 */
     text-indent: 2rem;
     margin: 0 2rem;
+}
+/* 联系人 */
+#list {
+    background-color: #a8dee0;
+    width: 2rem;
+    /* 换行 */
+    word-wrap: break-word;
+    /* 文字之间间隔变大 */
+    letter-spacing: 2rem; 
+    position: fixed;
+    right: 1rem;
+    top: 7rem;
+    text-align: center;
+    line-height: 2.2rem;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+}
+.zimuList {
+    padding: 1rem;
+    border-bottom: 0.1rem solid #eee;
 }

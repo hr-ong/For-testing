@@ -42,7 +42,7 @@
     /* 背景透明 */
     /* background-color:transparent; */
     font-size: 1.4rem;
-    width: 20rem;
+    width: 18rem;
     height: 4.75rem;
     border: 0;
     margin: 1rem 0;
@@ -56,4 +56,26 @@
     padding: 1rem 1rem;
     border: 0;
     margin: 2rem 0;
+}
+/* 弹出的model */
+#submitModel ,#model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(9, 9, 9, 0.6);
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.model-content {
+    width: 90%;
+    font-size: 1.6rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 1.5rem;
+    margin: 20rem auto;
+    padding: 2rem 1rem;
+    line-height: 3rem;
+    z-index: 1001;
 }

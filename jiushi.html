@@ -18,68 +18,69 @@
 		<div id="center">
 			<ul id="lists">
 				<li class="item" v-for="item in kinds">
-					<div>
+					<div @click="dian($event)" style="width: 100%;">
 						<section class="text" style="font-size: 1.4rem;">{{item.info}}</section>
 						<section class="light">
 							1955-02-02
 						</section>
 					</div>
-					<img :src="item.src" width="80rem" style="margin-right: 1rem;">
+					<img :src="item.src" class="jiushiImg">
 				</li>
 			</ul>
 		</div>
 	</body>
 	<script>
-		$(()=> {
-			const vm = new Vue({
-				// el指定作用域，该代码在app盒子中生效
-				el:'#center',
-				// 变量，假数据
-				data:{
-					kinds:[
-						{
-							'src':'./img/naodong/nao_01.jpg',
-							'title':'沼泽游泳',
-							'info':'在威尔士，每年会举行沼泽游泳大赛。参赛者配备潜水通气管和脚蹼，在沼泽地里游泳。'
-						},
-						{
-							'src':'./img/naodong/nao_02.jpg',
-							'title':'魁地奇球赛',
-							'info':'了解《哈里·波特》的读者，就会知道魁地奇球赛是什么。参赛球队每队7人，每个人骑着扫帚，然后争取把球投进对方的圈圈里。'
-						},
-						{
-							'src':'./img/naodong/nao_03.jpg',
-							'title':'波沙球',
-							'info':'兴起于西班牙的一个比赛，糅合了排球、足球、体操和巴西战舞等多项运动。参赛者在一个巨大的气垫上比赛，球网两侧还有蹦床，帮助球员跳得更高来扣球。观赏性绝对满分。'
-						},
-						{
-							'src':'./img/naodong/nao_04.jpg',
-							'title':'象棋拳击',
-							'info':'古语有云，动若脱兔，静若处子。这项比赛大概就要求人同时做到这两项。顾名思义，象棋拳击，就是要求参赛选手必须有脑有肉，既懂下象棋，又懂拳击。'
-						},
-						{
-							'src':'./img/naodong/nao_01.jpg',
-							'title':'沼泽游泳',
-							'info':'在威尔士，每年会举行沼泽游泳大赛。参赛者配备潜水通气管和脚蹼，在沼泽地里游泳。'
-						},
-						{
-							'src':'./img/naodong/nao_02.jpg',
-							'title':'魁地奇球赛',
-							'info':'了解《哈里·波特》的读者，就会知道魁地奇球赛是什么。参赛球队每队7人，每个人骑着扫帚，然后争取把球投进对方的圈圈里。'
-						},
-						{
-							'src':'./img/naodong/nao_03.jpg',
-							'title':'波沙球',
-							'info':'兴起于西班牙的一个比赛，糅合了排球、足球、体操和巴西战舞等多项运动。参赛者在一个巨大的气垫上比赛，球网两侧还有蹦床，帮助球员跳得更高来扣球。观赏性绝对满分。'
-						},
-						{
-							'src':'./img/naodong/nao_04.jpg',
-							'title':'象棋拳击',
-							'info':'古语有云，动若脱兔，静若处子。这项比赛大概就要求人同时做到这两项。顾名思义，象棋拳击，就是要求参赛选手必须有脑有肉，既懂下象棋，又懂拳击。'
-						}
-					]
-				}
-			})
+		const vm = new Vue({
+			// el指定作用域，该代码在app盒子中生效
+			el:'#center',
+			// 变量，假数据
+			data:{
+				kinds:[
+					{
+						'src':'./img/naodong/nao_01.jpg',
+						'title':'沼泽游泳',
+						'info':'在威尔士，每年会举行沼泽游泳大赛。参赛者配备潜水通气管和脚蹼，在沼泽地里游泳。'
+					},
+					{
+						'src':'./img/naodong/nao_02.jpg',
+						'title':'魁地奇球赛',
+						'info':'了解《哈里·波特》的读者，就会知道魁地奇球赛是什么。参赛球队每队7人，每个人骑着扫帚，然后争取把球投进对方的圈圈里。'
+					},
+					{
+						'src':'./img/naodong/nao_03.jpg',
+						'title':'波沙球',
+						'info':'兴起于西班牙的一个比赛，糅合了排球、足球、体操和巴西战舞等多项运动。参赛者在一个巨大的气垫上比赛，球网两侧还有蹦床，帮助球员跳得更高来扣球。观赏性绝对满分。'
+					},
+					{
+						'src':'./img/naodong/nao_04.jpg',
+						'title':'象棋拳击',
+						'info':'古语有云，动若脱兔，静若处子。这项比赛大概就要求人同时做到这两项。顾名思义，象棋拳击，就是要求参赛选手必须有脑有肉，既懂下象棋，又懂拳击。'
+					},
+					{
+						'src':'./img/naodong/nao_01.jpg',
+						'title':'沼泽游泳',
+						'info':'在威尔士，每年会举行沼泽游泳大赛。参赛者配备潜水通气管和脚蹼，在沼泽地里游泳。'
+					},
+					{
+						'src':'./img/naodong/nao_02.jpg',
+						'title':'魁地奇球赛',
+						'info':'了解《哈里·波特》的读者，就会知道魁地奇球赛是什么。参赛球队每队7人，每个人骑着扫帚，然后争取把球投进对方的圈圈里。'
+					},
+					{
+						'src':'./img/naodong/nao_03.jpg',
+						'title':'波沙球',
+						'info':'兴起于西班牙的一个比赛，糅合了排球、足球、体操和巴西战舞等多项运动。参赛者在一个巨大的气垫上比赛，球网两侧还有蹦床，帮助球员跳得更高来扣球。观赏性绝对满分。'
+					},
+					{
+						'src':'./img/naodong/nao_04.jpg',
+						'title':'象棋拳击',
+						'info':'古语有云，动若脱兔，静若处子。这项比赛大概就要求人同时做到这两项。顾名思义，象棋拳击，就是要求参赛选手必须有脑有肉，既懂下象棋，又懂拳击。'
+					}
+				]
+			}
+		})
+		$('.item').on('click', ()=>{
+			window.location.href='dakai.html';
 		})
 	</script>
 </html>

@@ -15,6 +15,7 @@
 #head, #hangB {
     /* margin-top: -3.4rem !important; */
     background-color: #fff;
+    z-index: 100;
 }
 .select a {
     background-color: #fff;
@@ -73,6 +74,7 @@
     font-size: 1.4rem;
 }
 .option select {
+    background-color: #fff;
     padding: 0 1rem;
     /*清除select的边框样式*/
     border: none;
@@ -86,6 +88,9 @@
     -moz-appearance: none;
 }
 /* 2.回忆页面 */
+#zhimg {
+    border-radius: 0.5rem;
+}
 .btn {
     background-color: #3e4140;
     color: #fff;
@@ -102,4 +107,104 @@
     font-size: 1.8rem;
     padding: 1.8rem 0;
     border-bottom: 0.1rem solid #eee;
+}
+/* 5.我的页面 */
+#mine {
+    background-color: #3e4140;
+}
+/* 竖线 */
+#shuxian {
+    width: 0.1rem;
+    height: 5rem;
+    background-color: #fff;
+    margin: 0 1rem;
+}
+.tan {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.anniu {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+}
+.qianbtn {
+    background-color: #a8dee0;
+    font-size: 1.6rem;
+}
+.shenbtn {
+    color: #a8dee0;
+    margin: 1rem 0;
+    font-size: 1.6rem;
+}
+.shenbtn p {
+    font-size: 0.8rem;
+    position: relative;
+    top: -1rem;
+    margin: -10px;
+}
+.shenbtn span {
+    position: relative;
+    top: -2rem;
+    margin: -2rem;
+}
+#caidan {
+    background-color: #343635;
+}
+
+/* 修改原有样式 */
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+    width: 0.4rem;
+    height: 0.3rem;
+    border-radius: 50%;
+}
+.swiper-pagination-bullet-active {
+    color: #fff;
+    width: .8rem !important;
+}
+#diwuye .swiper-pagination {
+    top: 0rem;
+    background-color: #343635;
+    height: 6rem;
+    display: flex;
+    justify-content: space-around;
+}
+#diwuye .swiper-pagination .swiper-pagination-bullet {
+    margin-top: 1rem;
+    padding: 2rem 3rem;
+    border-radius: 0.5rem;
+    opacity: 1;
+}
+#diwuye .swiper-pagination-bullet-active {
+    width: 2rem;
+    height: 2rem;
+    background-color: #3e4140;
+}
+#diwuye .swiper-slide {
+    margin-top: 6rem;
+}
+/* 弹出的model */
+#submitModel ,#model {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(9, 9, 9, 0.6);
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.model-content {
+    width: 90%;
+    font-size: 1.6rem;
+    text-align: center;
+    background: #fff;
+    border-radius: 1.5rem;
+    margin: 20rem auto;
+    padding: 2rem 1rem;
+    line-height: 3rem;
+    z-index: 1001;
+}
+#qita i {
+    font-size: 5rem !important;
 }
