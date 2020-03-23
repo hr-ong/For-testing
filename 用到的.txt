@@ -25,3 +25,16 @@ textarea的padding不起作用：决定外面套一个盒子给背景颜色假�
 () => {};
 // 相当于：
 funciotn(){}.bind(this);
+
+
+动态绑定
+前面的元素是要在刚开始加载的时候就存在的 on('',后添加的元素,'',funciotn)
+
+有的时候button绑定的事件不生效，是默认type是submit，需要手动改成button才可以
+
+利用swiper制作我的页面的内部分页
+
+多做一些问卷调查和投票类的东西更好帮助大家来分析受众人群以及用户比例，年龄和收视群体
+
+input file 选取图片后显示
+https://www.cnblogs.com/Immortal-brother/archive/2017/10/25/7730134.html
