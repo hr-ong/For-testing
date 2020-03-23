@@ -20,28 +20,28 @@
 			</div>
 			<form id="iptBox" class="form-horizontal">
 				<div class="group">
-					<label for="phone">图标</label>
+					<label for="phone"><i class="iconfont icon-yonghu"></i></label>
 					<input type="text" class="ipt" id="name" autocomplete="on"
 					autofocus="autofocus" placeholder="请输入姓名/昵称"></input>
 				</div>
 				<div class="group">
-					<label for="password">图标</label>
+					<label for="password"><i class="iconfont icon-mima"></i></label>
 					<input type="password" class="ipt" id="password"
 					autocomplete="additional-name" placeholder="请输入密码"></input>
 				</div>
 				<div class="group">
-					<label for="password">图标</label>
+					<label for="password"><i class="iconfont icon-mima"></i></label>
 					<input type="password" class="ipt" id="password1"
 					autocomplete="additional-name"placeholder="请确认密码"></input>
 				</div>
 				<div class="group">
-					<label for="phone">图标</label>
+					<label for="phone"><i class="iconfont icon-yonghu"></i></label>
 					<input type="text" class="ipt" id="phone" autocomplete="on"
 					autofocus="autofocus" placeholder="绑定手机号"></input>
-					<button class="btn" id="">发送验证码</button>
+					<button type="button" class="btn" onclick="showModel()">发送验证码</button>
 				</div>
 				<div class="group">
-					<label for="phone">图标</label>
+					<label for="phone"><i class="iconfont icon-chenggong"></i></label>
 					<input type="text" class="ipt" id="yanzheng" autocomplete="on"
 					autofocus="autofocus" placeholder="验证码"></input>
 				</div>
@@ -49,11 +49,30 @@
 					<img id="logon" src="./img/02_登录icon.png" width="140rem" style="margin-top: 2rem;">
 				</div>
 			</form>
+			<div id="submitModel" onclick="closeModel()">
+				<div class="model-content">
+					验证码：9090
+					<button class="btn" onclick="closeModel()">
+					确定</button>
+				</div>
+			</div>
+			<div id="model">
+				<div class="model-content">
+					<i class="iconfont icon-chenggong"></i>注册成功!即将跳转
+				</div>
+			</div>
 		</div>
 	</body>
 	<script>
-		$(()=>{
-			
+		$('#logon').on('click', ()=>{
+			$('#model').show();
+		  setTimeout('window.location.href = "login.html"',2000);
 		})
+		function showModel() {
+			$('#submitModel').show(400);
+		}
+		function closeModel() {
+			$('#submitModel').hide(400);
+		}
 	</script>
 </html>
