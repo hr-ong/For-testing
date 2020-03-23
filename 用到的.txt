@@ -19,7 +19,7 @@ https://blog.csdn.net/github_38851471/article/details/79446722
 
 点赞点一条影响所有 已解决
 textarea的padding不起作用：决定外面套一个盒子给背景颜色假装外框
-模拟手机键盘弹出输入等
+模拟手机keyboard弹出输入等
 
 箭头函数中的$(this)不一样
 () => {};
@@ -38,3 +38,6 @@ funciotn(){}.bind(this);
 
 input file 选取图片后显示
 https://www.cnblogs.com/Immortal-brother/archive/2017/10/25/7730134.html
+
+因为项目中包含太多中文名字的文件，所以用Hbuilder打包本地资源失败，在手机上跑的时候可能也是因为图片文件全是中文的所以
+图片显示不出来。

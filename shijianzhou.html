@@ -27,9 +27,9 @@
 						<img :src="item.src" width="200rem" style="margin: 1rem 0;">
 						<section class="text" style="font-size: 1.2rem;">{{item.info}}</section>
 						<section class="light r">
-							<img class="zan" @click="dian($event)" src="./img/images/点_03.png"><span>9</span>
-							<img class="ping" src="./img/images/点_07.jpg">0
-							<img class="zhuan" src="./img/images/点_11.jpg">0
+							<img class="zan" @click="dian($event)" src="./img/images/dot_03.png"><span>9</span>
+							<img class="ping" src="./img/images/dot_07.jpg">0
+							<img class="zhuan" src="./img/images/dot_11.jpg">0
 						</section>
 					</div>
 				</li>
@@ -103,11 +103,11 @@
 							src = eve.getAttribute('src'),
 							// 获取下一个元素
 							next = eve.nextElementSibling;
-							if (src === `./img/images/点_03.png`) {
-								eve.src = `./img/images/点_09.jpg`;
+							if (src === `./img/images/dot_03.png`) {
+								eve.src = `./img/images/dot_09.jpg`;
 								next.innerHTML = Number(next.innerHTML) + 1;
 							} else {
-								eve.src = `./img/images/点_03.png`;
+								eve.src = `./img/images/dot_03.png`;
 								next.innerHTML = Number(next.innerHTML) - 1;
 							}
 					}

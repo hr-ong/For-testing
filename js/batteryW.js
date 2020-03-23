@@ -11,10 +11,10 @@ document.writeln("		<script src=\'https://cdn.staticfile.org/jquery/1.10.2/jquer
 document.writeln("	</head>");
 document.writeln("	<body onload=\'showTime()\'>");
 document.writeln("		<div id=\'hang\'>");
-document.writeln("			<img class=\'hang l\' src=\'./img/信号白.png\'>");
+document.writeln("			<img class=\'hang l\' src=\'./img/signalW.png\'>");
 document.writeln("			<section class=\'hang\' id=\'time\'>");
 document.writeln("			</section>");
-document.writeln("			<img class=\'hang r\' src=\'./img/电池白.png\'>");
+document.writeln("			<img class=\'hang r\' src=\'./img/batteryW.png\'>");
 document.writeln("		</div>");
 document.writeln("	</body>");
 document.writeln("	<script>");

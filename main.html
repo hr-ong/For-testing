@@ -21,23 +21,23 @@
 			<ul style="overflow: scroll;padding-bottom: 10rem;">
 				<li class="page" value=1>
 					<div id="naodong">
-						<img src="./img/脑洞之王banner.jpg" style="width: 100%;" onclick="window.location.href">
+						<img src="./img/kingbanner.jpg" style="width: 100%;" onclick="window.location.href">
 					</div>
 					<ul id="sigeanniu">
 						<li class="button">
-							<img src="./img/故事按钮/历史.png" alt="">
+							<img src="./img/storyButton/history.png" alt="">
 							 <p>古时<br><span>历史上的那些事</span></p>
 						</li>
 						<li class="button">
-							<img src="./img/故事按钮/祠堂.png" alt="">
+							<img src="./img/storyButton/old.png" alt="">
 							<p>旧时<br><span>我们祖祖辈辈的故事</span></p>
 						</li>
 						<li class="button">
-							<img src="./img/故事按钮/儿童.png" alt="">
+							<img src="./img/storyButton/childhood.png" alt="">
 							<p>童时<br><span>我们自己小时候的故事</span></p>
 						</li>
 						<li class="button">
-							<img src="./img/故事按钮/今天icon.png" alt="">
+							<img src="./img/storyButton/today.png" alt="">
 							<p>今时<br><span>发生在身边的大事小情</span></p>
 						</li>
 					</ul>
@@ -78,16 +78,16 @@
 							</div>
 						</li>
 					</ul>
-					<img src="./img/列表.jpg" width="100%">
+					<img src="./img/lists.jpg" width="100%">
 				</li>
 				<li class="page" value=2>
 					<div>
 						<!-- 轮播图 -->
 						<div id="zhimg" class="swiper-container">
 							<div class="swiper-wrapper">
-									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/女王节banner.jpg"/></div>
-									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/投票.jpg" id="toupiao"/></div>
-									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/征集.jpg"/></div>
+									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/38banner.jpg"/></div>
+									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/vote.jpg" id="toupiao"/></div>
+									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/love.jpg"/></div>
 							</div>
 							<!-- 如果需要分页器 -->
 							<div class="swiper-pagination"></div>
@@ -99,7 +99,7 @@
 						</div>
 						<p style="font-size: 1.4rem;">从前书信很慢，车马很远，一生只爱一个人。
 						————木心《从前慢》</p>
-						<img src="./img/31_回忆箱.jpg" style="width: 30rem;" id="huiyixiang">
+						<img src="./img/31_box.jpg" style="width: 30rem;" id="huiyixiang">
 					</div>
 					<button class="btn" id="toudi">投递</button>
 				</li>
@@ -109,11 +109,12 @@
 						<li class="item"><div><i class="iconfont icon-aixin"></i>赞和收藏</div><i class="iconfont icon-fanhui2"></i></li>
 						<li class="item"><div><i class="iconfont">@</i>评论和@</div><i class="iconfont icon-fanhui2"></i></li>
 						<li class="item" id="lianxiren"><div><i class="iconfont icon-yonghu"></i>联系人</div><i class="iconfont icon-fanhui2"></i></li>
+						<li class="item" id="law"><div><i class="iconfont icon-riqi"></i>法律版面</div><i class="iconfont icon-fanhui2"></i></li>
 					</ul>
 				</li>
 				<li class="page" value=5 id="mine">
 					<section class="tan" style="padding: 2rem;color: #fff;">
-						<img src="./img/头像/头像_14.png" width="100rem" height="100rem">
+						<img src="./img/headImg/touImg_14.png" width="100rem" height="100rem">
 						<div>
 							<p style="font-size: 1.8rem;">小猪佩奇</p>
 							<section class="tan">
@@ -143,10 +144,10 @@
 						<div class="swiper-container">
 							<ul class="swiper-pagination"></ul>
 							<div class="swiper-wrapper">
-								<div class="swiper-slide"><img src="./img/收藏.jpg" width="100%"></div>
-								<div class="swiper-slide"><img src="./img/记录.jpg" width="100%"></div>
-								<div class="swiper-slide"><img src="./img/收藏.jpg" width="100%"></div>
-								<div class="swiper-slide"><img src="./img/记录.jpg" width="100%"></div>
+								<div class="swiper-slide"><img src="./img/collection.jpg" width="100%"></div>
+								<div class="swiper-slide"><img src="./img/record.jpg" width="100%"></div>
+								<div class="swiper-slide"><img src="./img/collection.jpg" width="100%"></div>
+								<div class="swiper-slide"><img src="./img/record.jpg" width="100%"></div>
 							</div>
 						</div>
 					</section>
@@ -281,7 +282,7 @@
 			window.location.href='toupiao.html';			
 		})
 		$('#huiyixiang').on('click', ()=>{
-			console.log('回忆箱页面');
+			console.log('box页面');
 			
 		})
 		$('#toudi, .icon-jia').on('click', ()=>{
@@ -296,6 +297,9 @@
 		})
 		$('#lianxiren').on('click', ()=>{
 			window.location.href='lianxiren.html';
+		})
+		$('#law').on('click', ()=>{
+			window.location.href='law.html';
 		})
 		// 5.我的
 		$('#h-l').on('click', '.icon-gushifenlei', ()=>{
