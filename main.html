@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<meta name="viewport" id="vp" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-		<title>老故事</title>
+		<title></title>
 		<link rel="stylesheet" href="./css/mobilebase.css">
 		<link rel="stylesheet" href="./css/main.css">
 		<!-- 引入jquery -->
@@ -83,7 +83,7 @@
 				<li class="page" value=2>
 					<div>
 						<!-- 轮播图 -->
-						<div id="zhimg" class="swiper-container">
+						<div id="zhimg" class="swiper-container swiper2">
 							<div class="swiper-wrapper">
 									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/38banner.jpg"/></div>
 									<div class="swiper-slide"><img class="lunbo" style="width: 100%;" src="img/vote.jpg" id="toupiao"/></div>
@@ -141,7 +141,7 @@
 						</ul>
 					</section>
 					<section id="diwuye">
-						<div class="swiper-container">
+						<div class="swiper-container swiper5">
 							<ul class="swiper-pagination"></ul>
 							<div class="swiper-wrapper">
 								<div class="swiper-slide"><img src="./img/collection.jpg" width="100%"></div>
@@ -167,7 +167,7 @@
 		</div>
 		<div class="navBox">
 			<ul class="nav">
-				<li role="presentation" class="select"><a href="#"><i class="iconfont icon-gushi"></i><p>故事</p></a></li>
+				<li role="presentation"><a href="#"><i class="iconfont icon-gushi"></i><p>故事</p></a></li>
 				<li role="presentation"><a href="#"><i class="iconfont icon-gushiban"></i><p>回忆</p></a></li>
 				<li role="presentation"><a href="#"><i class="iconfont icon-jia" style="font-size: 4rem;"></i></a></li>
 				<li role="presentation"><a href="#"><i class="iconfont icon-xiaoxi"></i><p>消息</p></a></li>
@@ -176,152 +176,198 @@
 		</div>
 	</body>
 	<script>
-		// 初始化header
-		$('#h-l').text('');
-		$('#h-r').text('');
-		// 整体
-		$('.page').hide();
-		$('.page').eq(0).show();
-		$('.nav li').click(function(){
-			// 被点击的下标
-			const num = $('.nav li').index(this);
-			// 全部隐藏
+		$(()=>{
+			// 整体
+			let fresh = localStorage.getItem('fresh');
 			$('.page').hide();
-			$('.page').eq(num).show();
-			// 被点击的样式改变
-    	$(this).attr('class', 'select');
-			$(this).siblings().attr('class', '');
-			// 标题功能
-			console.log($('.page').eq(num).val());
-			switch($('.page').eq(num).val())
-			{
-				case 1:
-					$('#h-l').text('');
-					$('#h-c').text('老故事');
-					$('#h-r').text('');
-					break;
-				case 2:
-					$('#h-l').text('');
-					$('#h-c').text('回忆');
-					$('#h-r').html('<i class="iconfont icon-gushiban"></i>');
-					// 第二页的轮播图
-					var mySwiper = new Swiper ('.swiper-container', {
-						// direction: 'vertical', // 垂直切换选项
-    				loop: true, // 循环模式选项
-    				// 如果需要分页器
-    				pagination: {
-    				  el: '.swiper-pagination',
-    				},
-    				// 如果需要前进后退按钮
-    				navigation: {
-    				  nextEl: '.swiper-button-next',
-    				  prevEl: '.swiper-button-prev',
-    				},
-    				// 如果需要滚动条
-    				scrollbar: {
-    				  el: '.swiper-scrollbar',
-    				},
-    				//自动播放
-    				autoplay: {
-    				disableOnInteraction: false,
-    				delay: 3000,
-  					}
-					})
-					break;
-				case 3:
-					$('#h-l').text('');
-					$('#h-c').text('新建');
-					$('#h-r').text('');
-					break;
-				case 4:
-					$('#h-l').text('');
-					$('#h-c').text('消息');
-					$('#h-r').html('<i class="iconfont icon-tucao"><span>吐槽</span></i>');
-					break;
-				case 5:
-					$('#h-l').html('<i class="iconfont icon-gushifenlei" style="font-size:20px"></i>');
-					$('#h-c').text('我的');
-					$('#h-r').html('<i class="iconfont icon-gushi-fenxiang"></i>');
-					// 第五页的轮播图做翻页
-					var swiper = new Swiper('.swiper-container', {
-      			pagination: {
-							el: '.swiper-pagination',
-							// 点击分页器切换
-							clickable: true,							
-      		  	renderBullet: function (index, className) {
-								// className = 'xuan';
-								switch(index) {
-									case 0:text='<span>899</span><p>收藏</p>';break;
-          			  case 1:text='<span>851</span><p>记录</p>';break;
-          			  case 2:text='<span>139</span><p>原创</p>';break;
-          			  case 3:text='<span>200</span><p>转载</p>';break;
-          			}
-      		    	return '<li value="11" class="anniu shenbtn ' + className + '">' + text + '</li>';
-      		  	}
-      			}
-    			});
-					break;
+			// 链接跳转：0,刷新：1,返回：2
+			if(window.performance.navigation.type === 0) {
+				fresh = 0;
+				one();
+			} else if(window.performance.navigation.type === 1||2) {
+				$(()=>{					
+					switch(parseInt(fresh))
+					{
+						case 0:one();  break;
+						case 1:two();  break;
+						case 2:three();break;
+						case 3:four(); break;
+						case 4:five();lunbo5(); break;
+						default:
+							console.info("加载页面出错了"+fresh);
+					}
+				})
+			}
+			$('.nav li').eq(fresh).attr('class','select');
+			$('.page').eq(fresh).show();
+			// Tab动作
+			$('.nav li').click(function(){
+				// 被点击的下标
+				const num = $('.nav li').index(this);
+				// 全部隐藏
+				$('.page').hide();
+				$('.page').eq(num).show();
+				// 被点击的样式改变
+				$(this).attr('class', 'select');
+				$(this).siblings().attr('class', '');
+				// 标题功能
+				let pageNum = $('.page').eq(num).val();
+				console.info('点击' + pageNum + '页面');
+				switch(pageNum)
+				{
+					case 1:one();  break;
+					case 2:two();  break;
+					case 3:three();break;
+					case 4:four(); break;
+					case 5:five(); break;
+					default:
+						console.info("点击页面出错了"+pageNum);
+				}
+			})
+			// 点击事件
+			// 1.故事
+			$('#naodong').on('click', ()=>{
+				window.location.href='naodong.html';
+			})
+			$('#search').on('focus', ()=>{
+				window.location.href='search.html';
+			})
+			$('.button').on('click', ()=>{
+				window.location.href='jiushi.html';
+			})
+			// 2.
+			$('#h-r').on('click', '.icon-gushiban', ()=>{
+				window.location.href='shijianzhou.html';
+			})
+			$('#toupiao, #qtou').on('click', ()=>{
+				window.location.href='toupiao.html';			
+			})
+			$('#huiyixiang').on('click', ()=>{
+				alert('敬请期待')			
+			})
+			$('#toudi, .icon-jia').on('click', ()=>{
+				window.location.href='jilukaishi.html';
+			})
+			// 4.消息
+			$('#h-r').on('click', '.icon-tucao', ()=>{
+				window.location.href='yijian.html';
+			})
+			$('.item').on('click', ()=>{
+				window.location.href='nullPage.html';
+			})
+			$('#lianxiren').on('click', ()=>{
+				window.location.href='lianxiren.html';
+			})
+			$('#law').on('click', ()=>{
+				window.location.href='law.html';
+			})
+			// 5.我的
+			$('#h-l').on('click', '.icon-gushifenlei', ()=>{
+				window.location.href='set.html';
+			})
+			$('#h-r').on('click', '.icon-gushi-fenxiang', ()=>{
+				showModel();
+			})
+			$('#jiazu').on('click', ()=>{
+				window.location.href='jiushi.html';
+			})
+			$('#xinqing').on('click', ()=>{
+				window.location.href='shijianzhou.html';
+			})
+			$('#shudong').on('click', ()=>{
+				window.location.href='404.html';
+			})
+			function showModel() {
+				$('#submitModel').show(400);
+			}
+			function closeModel() {
+				$('#submitModel').hide(400);
+			}
+			// 页面
+			function one(){
+				window.localStorage.setItem('fresh',0);
+				$('#h-l').text('');
+				$('#h-c').text('老故事');
+				$('#h-r').text('');
+			}
+			function two(){
+				window.localStorage.setItem('fresh',1);
+				$('#h-l').text('');
+				$('#h-c').text('回忆');
+				$('#h-r').html('<i class="iconfont icon-gushiban"></i>');
+				lunbo2();
+			}
+			function three(){
+				window.localStorage.setItem('fresh',2);
+				$('#h-l').text('');
+				$('#h-c').text('新建');
+				$('#h-r').text('');
+			}
+			function four(){
+				window.localStorage.setItem('fresh',3);
+				$('#h-l').text('');
+				$('#h-c').text('消息');
+				$('#h-r').html('<i class="iconfont icon-tucao"><span>吐槽</span></i>');
+			}
+			function five(){
+				window.localStorage.setItem('fresh',4);
+				$('#h-l').html('<i class="iconfont icon-gushifenlei" style="font-size:20px"></i>');
+				$('#h-c').text('我的');
+				$('#h-r').html('<i class="iconfont icon-gushi-fenxiang"></i>');
+				lunbo5();
+			}
+			function lunbo2(){
+				// 第二页的轮播图
+				var mySwiper = new Swiper ('.swiper2', {
+					// direction: 'vertical', // 垂直切换选项
+					loop: true, // 循环模式选项
+					// 如果需要分页器
+					pagination: {
+						el: '.swiper2 .swiper-pagination',
+					},
+					// 如果需要前进后退按钮
+					// navigation: {
+					// 	nextEl: '.swiper-button-next',
+					// 	prevEl: '.swiper-button-prev',
+					// },
+					// 如果需要滚动条
+					// scrollbar: {
+					// 	el: '.swiper-scrollbar',
+					// },
+					//自动播放
+					autoplay: {
+						// 触碰后停止
+						disableOnInteraction: false,
+						delay: 2000,
+					},
+					// 可设置为"fade"（淡入）"cube"（方块）"coverflow"（3d流）"flip"（3d翻转）
+					effect: 'coverflow',
+					observer: true,//修改swiper自己或子元素时，自动初始化swiper
+    			observeParents: true//修改swiper的父元素时，自动初始化swiper
+				})
+			}
+			function lunbo5(){
+				// 第五页的轮播图做翻页
+				var swiper = new Swiper('.swiper5', {
+					pagination: {
+						el: '.swiper5 .swiper-pagination',
+						// 点击分页器切换
+						clickable: true,							
+						renderBullet: function (index, className) {
+							switch(index) {
+								case 0:text='<span>899</span><p>收藏</p>';break;
+								case 1:text='<span>851</span><p>记录</p>';break;
+								case 2:text='<span>139</span><p>原创</p>';break;
+								case 3:text='<span>200</span><p>转载</p>';break;
+								default: console.info('swiper出错了' + index);
+							}
+							return '<li value="11" class="anniu shenbtn ' + className + '">' + text + '</li>';
+						}
+					},
+					observer: true,//修改swiper自己或子元素时，自动初始化swiper
+    			observeParents: true//修改swiper的父元素时，自动初始化swiper
+				});
 			}
 		})
-		// 点击事件
-		// 1.故事
-		$('#naodong').on('click', ()=>{
-			window.location.href='naodong.html';
-		})
-		$('#search').on('focus', ()=>{
-			window.location.href='search.html';
-		})
-		$('.button').on('click', ()=>{
-			window.location.href='jiushi.html';
-		})
-		// 2.
-		$('#h-r').on('click', '.icon-gushiban', ()=>{
-			window.location.href='shijianzhou.html';
-		})
-		$('#toupiao, #qtou').on('click', ()=>{
-			window.location.href='toupiao.html';			
-		})
-		$('#huiyixiang').on('click', ()=>{
-			console.log('box页面');
-			
-		})
-		$('#toudi, .icon-jia').on('click', ()=>{
-			window.location.href='jilukaishi.html';
-		})
-		// 4.消息
-		$('#h-r').on('click', '.icon-tucao', ()=>{
-			window.location.href='yijian.html';
-		})
-		$('.item').on('click', ()=>{
-			window.location.href='nullPage.html';
-		})
-		$('#lianxiren').on('click', ()=>{
-			window.location.href='lianxiren.html';
-		})
-		$('#law').on('click', ()=>{
-			window.location.href='law.html';
-		})
-		// 5.我的
-		$('#h-l').on('click', '.icon-gushifenlei', ()=>{
-			window.location.href='set.html';
-		})
-		$('#h-r').on('click', '.icon-gushi-fenxiang', ()=>{
-			showModel();
-		})
-		$('#jiazu').on('click', ()=>{
-			window.location.href='jiushi.html';
-		})
-		$('#xinqing').on('click', ()=>{
-			window.location.href='shijianzhou.html';
-		})
-		$('#shudong').on('click', ()=>{
-			window.location.href='404.html';
-		})
-		function showModel() {
-			$('#submitModel').show(400);
-		}
-		function closeModel() {
-			$('#submitModel').hide(400);
-		}
 	</script>
 </html>
