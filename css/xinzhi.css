@@ -18,7 +18,7 @@
     width: 100%;
     display: inline-block;
     justify-content: flex-start;
-    margin-top: 20rem;
+    margin-top: 10rem;
 }
 .btn {
     background-color: #3e4140;
@@ -47,11 +47,4 @@
 }
 .swiper-slide img {
     width: 100%;
-}
-.swiper-slide-active {
-    transform: scale(2);
-}
-.swiper-slide-active img {
-    /* transform: scale(3); */
-    /* width: 20rem; */
 }
