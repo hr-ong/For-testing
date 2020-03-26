@@ -30,12 +30,19 @@
 					autocomplete="additional-name" placeholder="请输入密码"></input>
 					<a id="show">显示密码</a>
 				</div>
-				<div class="group">
+				<div class="group fuwen">
 					<label for="check">
 						<input type="checkbox" id="check"> 记住密码
 					</label>
-					<label for="check">
+					<label for="forget">
 						<a id="forget" style="margin-left: 2rem;" href="forgetPassword.html"> 忘记密码</a>
+					</label>
+				</div>
+				<div class="group fuwen" style="margin-top: 1rem;">
+					<label>
+						<input type="checkbox" checked> 已同意<a class="wenshu">《老故事用户协议》</a>
+						以及
+						<a class="wenshu">《隐私政策》</a>
 					</label>
 				</div>
 				<div class="group">
@@ -64,7 +71,7 @@
 				qiehuan.text = '显示密码';
 			}
 		})
-		$('#login').on('click',()=>{
+		$('#login, #qita i').on('click',()=>{
 			window.location.href = 'jindu.html';
 		})
 	</script>

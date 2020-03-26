@@ -37,6 +37,9 @@
     display: block;
     margin: 0 2rem;
 }
+.fuwen {
+    text-align: center;
+}
 #qingxie {
     position: relative;
     bottom: 72rem;
@@ -48,7 +51,7 @@
 .ipt {
     font-size: 1.4rem;
     width: 20rem;
-    height: 4.75rem;
+    height: 2.75rem;
     border: 0;
     margin: 1rem 0;
     border-bottom: black 0.1rem solid;
