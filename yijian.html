@@ -35,7 +35,7 @@
 						提交成功！<br>
 						感谢您的反馈，我们会及时查看
 						<hr style="margin: 1rem 2rem;">
-						<p id="neirong" class="l" style="margin-left: 1rem;">反馈内容：空</p>
+						<p id="neirong" class="l" style="margin-left: 1rem;"></p>
 						<button id="close" class="btn" onclick="closeModel()">
 						确定</button>
 					</div>
@@ -55,8 +55,10 @@
 		});
 		$('#submit').on('click',()=>{
 			let neirong = $('textarea').val();
-			if (neirong !== '')	{
+			if (neirong.trim() !== '')	{
 				$('#neirong').text('反馈内容：' + neirong);
+			} else {
+				$('#neirong').text('反馈内容：空');
 			}
 		})
 		function showModel() {
