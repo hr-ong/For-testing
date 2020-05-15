@@ -40,3 +40,11 @@
     border: 0;
     margin: 2rem 0;
 }
+/* 启动页面 */
+#startimg {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #3e4140;
+}

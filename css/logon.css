@@ -37,6 +37,11 @@
     display: block;
     margin: 0 2rem;
 }
+#return {
+    position: absolute;
+    bottom: 8rem;
+    right: 5rem;
+}
 .ipt {
     background:rgba(255,255,255,0.2);
     /* 背景透明 */

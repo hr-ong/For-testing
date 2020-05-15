@@ -47,3 +47,6 @@ https://www.cnblogs.com/Immortal-brother/archive/2017/10/25/7730134.html
 开始写，要有标签选择过滤，“四时”以及真实虚拟，地点可选（或者可以智能提取标签过滤，自动生成标签）
 
 swiper在返回时会出错，不加载，然后加上$(function(){})相当于$(document).ready(function()，DOM加载完毕后执行，就好使了
+
+background: -webkit-gradient(linear, 0 0, 100% 0,from(#6AC1FC), to(#2777EC));
+一个渐变背景

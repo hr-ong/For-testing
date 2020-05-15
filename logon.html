@@ -49,6 +49,7 @@
 					<img id="logon" src="./img/02_icon.png" width="140rem" style="margin-top: 2rem;">
 				</div>
 			</form>
+			<a id="return">已有帐户 | 登录</a>
 			<div id="submitModel" onclick="closeModel()">
 				<div class="model-content">
 					验证码：9090
@@ -67,6 +68,9 @@
 		$('#logon').on('click', ()=>{
 			$('#model').show();
 		  setTimeout('window.location.href = "login.html"',2000);
+		})
+		$('#return').on('click',()=>{
+			window.location.href = 'login.html';
 		})
 		function showModel() {
 			$('#submitModel').show(400);
